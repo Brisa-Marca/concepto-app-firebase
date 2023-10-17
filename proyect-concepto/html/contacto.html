@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Concepto — Cursos y tutoriales</title>
+    <title>Concepto — Mis cursos</title>
     <link rel="icon" href="../assets/svg/favicon.svg" />
 
     <!--Fonts-->
@@ -13,6 +13,7 @@
 
     <!--Custom CSS-->
     <link rel="stylesheet" href="../css/styles.css">
+
 
 </head>
 
@@ -36,13 +37,13 @@
                         <p>Home</p>
                     </a>
                 </li>
-                <li id="explorar" class="active">
+                <li id="explorar" >
                     <a href="../html/pricing.html" class="navigation-anchor">
                         <p>Pricing</p>
                     </a>
                 </li>
                
-                <li>
+                <li class="active">
                     <a href="../html/contacto.html" class="navigation-anchor">
                         <p>Contactanos</p>
                     </a>
@@ -87,86 +88,23 @@
 
     </header>
 
-    <main id="main">    
-       <section class="pricing-content">
-        <p class="subtitle subtitle-center-lines text-center">Pricing</p>
-        <h2 class="h1 h1-bigger text-center mt-8 mb-56 title-pricing">Comenza a potenciar tu carrera profesional con concepto</h2>
-        <p class="paragraph mb-8 p-pricing">
-            Con nuestros planes premium, accedés a nuestro catálogo entero de +435 tutoriales. ¡Elegí el que más se adapta a tus necesidades!
-        </p>
+    <main id="main">
 
-       </section>
-       <section class="planes-content" id="planes-content">
+          
+        <section class="pricing-content">
+            <p class="subtitle subtitle-center-lines text-center">¿Alguna duda?</p>
+            <h2 class="h1 h1-bigger text-center mt-8 mb-56 title-pricing">Ponte en contacto con nosotros</h2>
+            <p class="paragraph mb-8 p-pricing">
+                Escribinos por chat ante cualquier duda que tengas, alguien de nuestro equipo se pondrá en contacto a la brevedad
+            </p>
+    
+           </section>
+           <section class="content-chat">
+            <div class="chat">
+                
+            </div>
+           </section>
 
-       </section>
-       <!--<section class="planes-content">
-        <div class="plans">
-            <h2 class="title-plans ">Basic</h2>
-            <p>Para los que solo quieren acceder a nuestro inmenso catálogo</p>
-            <span class="price-plans">$3.000 <p class="p-mes">/mes</p></span>
-            <div class="caracteristicas-content">
-                <h3>Caracteristicas</h3>
-                <ul class="items-caracteristicas">
-                    <li><img src="../assets/svg/tick-square.svg" alt="">
-                        <p>Acceso a la plataforma y el catálogo completo</p>
-                    </li>
-                    <li><img src="../assets/svg/tick-square.svg" alt="">
-                       <p>Cuenta personal para un seguimiento personalizado</p>
-                    </li>
-                    <li><img src="../assets/svg/tick-square.svg" alt="">
-                       <p>Catálogo siempre actualizado con los últimos tutoriales</p> 
-                    </li>
-                </ul>
-            </div>
-            <div>
-                <button class="btn-elegir-plan">Elegir plan</button>
-            </div>
-        </div>
-        <div class="plans">
-            <h2 class="title-plans ">Pro</h2>
-            <p>Para los que buscan vivir la experiencia completa de concepto</p>
-            <span class="price-plans">$10.000 <p class="p-mes">/mes</p></span>
-            <div class="caracteristicas-content">
-                <h3>Caracteristicas</h3>
-                <ul class="items-caracteristicas">
-                    <li><img src="../assets/svg/tick-square.svg" alt="">
-                       <p>Lorem ipsum dolor sit amet.beneficio 1</p> 
-                    </li>
-                    <li><img src="../assets/svg/tick-square.svg" alt="">
-                       <p>Lorem ipsum dolor sit amet.beneficio 2</p> 
-                    </li>
-                    <li><img src="../assets/svg/tick-square.svg" alt="">
-                       <p> Lorem ipsum dolor sit amet.beneficio 3</p>
-                    </li>
-                </ul>
-            </div>
-            <div>
-                <button  class="btn-elegir-plan">Elegir plan</button>
-            </div>
-        </div>
-        <div class="plans">
-            <h2 class="title-plans ">Enterprice</h2>
-            <p>Para las empresas que quieren llevar a sus talentos al siguiente nivel</p>
-            <span class="price-plans">Personalizado</span>
-            <div class="caracteristicas-content">
-                <h3>Caracteristicas</h3>
-                <ul class="items-caracteristicas">
-                    <li><img src="../assets/svg/tick-square.svg" alt="">
-                        <p>Lorem ipsum dolor sit amet.beneficio 1</p> 
-                     </li>
-                     <li><img src="../assets/svg/tick-square.svg" alt="">
-                        <p>Lorem ipsum dolor sit amet.beneficio 2</p> 
-                     </li>
-                     <li><img src="../assets/svg/tick-square.svg" alt="">
-                        <p> Lorem ipsum dolor sit amet.beneficio 3</p>
-                     </li>
-                </ul>
-            </div>
-            <div>
-                <button class=" btn-elegir-plan">Solicitar cotización</button>
-            </div>
-        </div>
-       </section>-->
 
     </main>
 
@@ -215,70 +153,7 @@
 
     </footer>
 
-    <!--<script src="../js/courses.js"></script>-->
-    <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.2.0/firebase-app.js";
-        import {getFirestore , collection, getDocs} from "https://www.gstatic.com/firebasejs/10.2.0/firebase-firestore.js";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
-      
-        // Your web app's Firebase configuration
-        const firebaseConfig = {
-          apiKey: "AIzaSyCDYKN5onuHzUUqDSnSeTysAkC0hAT3QBU",
-          authDomain: "cwn-2023-2-t.firebaseapp.com",
-          projectId: "cwn-2023-2-t",
-          storageBucket: "cwn-2023-2-t.appspot.com",
-          messagingSenderId: "13120241989",
-          appId: "1:13120241989:web:2768ae53b3e64504007e2c"
-        };
-      
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-
-        //Inicializamos  firestore
-        const db = getFirestore(app);
-
-        /******* Leyendo de firestore *****/
-        const contentPlans = document.getElementById("planes-content");
-
-        const refPlans = collection(db, "planes");
-        getDocs(refPlans)
-        .then(snapshot => {
-            //console.log(snapshot);
-            //Vamos a vaciar el contenedor de planes para actualizar si es que se modifico o se agrego mas planes.
-            contentPlans.innerHTML = "";
-            snapshot.forEach(doc => {
-                contentPlans.innerHTML += `<div class="plans">
-            <h2 class="title-plans ">${doc.data().nombre}</h2>
-            <p>${doc.data().descripción}</p>
-            <span class="price-plans">$${doc.data().precio}<p class="p-mes">/mes</p></span>
-            <div class="caracteristicas-content">
-                <h3>Caracteristicas</h3>
-                <ul class="items-caracteristicas">
-                    <li><img src="../assets/svg/tick-square.svg" alt="">
-                       <p>${doc.data().caracteristicas[0]}</p> 
-                    </li>
-                    <li><img src="../assets/svg/tick-square.svg" alt="">
-                       <p>${doc.data().caracteristicas[1]}</p> 
-                    </li>
-                    <li><img src="../assets/svg/tick-square.svg" alt="">
-                       <p> ${doc.data().caracteristicas[2]}</p>
-                    </li>
-                </ul>
-            </div>
-            <div>
-                <button  class="btn-elegir-plan">Elegir plan</button>
-            </div>
-        </div>`
-            })
-
-        })
-        .catch(err =>{
-            console.error("error al traer los planes", err);
-        })
-      </script>
-    
+  
 
 </body>
 

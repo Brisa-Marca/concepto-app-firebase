@@ -1,0 +1,52 @@
+<script>
+import {planesActualizados} from '../services/plans.js';
+export default{
+    name: 'Pricing',
+    data(){
+        return{
+            actual :[],
+
+        }
+    },
+    mounted() {
+        planesActualizados(actual =>{
+            this.actual = actual;
+        });
+    }
+}
+</script>
+<template>
+   
+  <section class="pricing-content">
+   <p class="subtitle subtitle-center-lines text-center">Pricing</p>
+   <h2 class="h1 h1-bigger text-center mt-8 mb-56 title-pricing">Comenza a potenciar tu carrera profesional con concepto</h2>
+   <p class="paragraph mb-8 p-pricing">
+       Con nuestros planes premium, accedés a nuestro catálogo entero de +435 tutoriales. ¡Elegí el que más se adapta a tus necesidades!
+   </p>
+  </section>
+    <section class="planes-content" id="planes-content">
+            <div class="plans" v-for="plans in actual">
+                   <h2 class="title-plans ">{{plans.nombre}}</h2>
+                         <p>{{plans.descripción}}</p>
+                    <span class="price-plans">${{plans.precio}}<p class="p-mes">/mes</p></span>
+                    <div class="caracteristicas-content">
+                        <h3>Caracteristicas</h3>
+                        <ul class="items-caracteristicas">
+                            <li><img src="../../assets/svg/tick-square.svg" alt="">
+                                <p>{{plans.caracteristicas[0]}}</p> 
+                            </li>
+                            <li><img src="../../assets/svg/tick-square.svg" alt="">
+                                <p>{{plans.caracteristicas[1]}}</p> 
+                            </li>
+                            <li><img src="../../assets/svg/tick-square.svg" alt="">
+                                <p> {{plans.caracteristicas[2]}}</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <button  class="btn-elegir-plan">Elegir plan</button>
+                    </div>
+                    </div>
+       </section>
+
+</template>
