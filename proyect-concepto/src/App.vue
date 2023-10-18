@@ -1,9 +1,28 @@
 <script>
 //import {planesActualizados} from './services/plans.js';
+import {subscribeToAuth} from './services/auth.js';
 import Pricing from './pages/Pricing.vue';
 
 export default {
     name: 'App',
+    data(){
+        return{
+            user:{
+                id: null,
+                email:null,
+
+            }
+        }
+    },
+    mounted(){
+        subscribeToAuth(newUserData =>{
+            this.user = {
+                ...newUserData,
+            }
+        });
+
+    }
+    
    
 }
 </script>
@@ -39,13 +58,28 @@ export default {
 </nav>
 
 
-<div>
-    <button class="btn-ingresar">Ingresar</button>
+<div class="btn-login">
+   <ul>
+    <template v-if="user.id === null">
+    <li>  <router-link to="/iniciar-sesion" class="btn-ingresar">Ingresar</router-link></li>
+    <li>  <router-link to="/registrar" class="btn-ingresar">Registrar</router-link></li>
+    </template>
+    <template v-else>
+        <li>  <router-link to="/iniciar-sesion" class="btn-ingresar">Mi Perfil</router-link></li>
+    <li>
+        <form action="">
+
+            <button type="submit">email(cerrar sesión)</button>
+        </form>
+    </li>
+</template>
+   </ul>
 </div>
+
 
 </header> 
       <main id="main">    
-       <router-view></router-view>
+       <router-view ></router-view>
       </main>
  
 </template>
