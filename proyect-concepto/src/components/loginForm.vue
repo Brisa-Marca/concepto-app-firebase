@@ -15,9 +15,9 @@ import { login} from "../services/auth.js";
         handleLogin(){
             console.log("Ejecutando el login con estos datos:", this.form);
             login({
-               // ...this.form,
-               email: this.form.email,
-               password:this.form.password,
+                ...this.form,
+               //email: this.form.email,
+               //password:this.form.password,
             })
             .then(user =>{
              

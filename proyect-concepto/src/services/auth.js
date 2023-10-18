@@ -1,4 +1,4 @@
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { auth } from "./firebase";
 
 //Funcionalidad relativa a la autenticación en la app.
@@ -9,16 +9,32 @@ let userData = {
 
 }
 let observers =[];
+
+onAuthStateChanged(auth,user =>{
+    if(user){
+    userData = {
+        id:user.uid,
+        email:user.email,
+    }
+    }else{
+        userData = {
+            id:null,
+            email:null,
+        }
+
+    }
+    notifyAll();
+});
 export function login ({email,password}){
     return signInWithEmailAndPassword(auth, email, password)
     //Trae las credenciales del usuario
-    .then(userCredentials =>{
+    .then(() =>{
 
-        userData = {
-            id:userCredentials.user.uid,
-            email:userCredentials.user.email,
+        // userData = {
+        //     id:userCredentials.user.uid,
+        //     email:userCredentials.user.email,
 
-        }
+        // }
         // Como modificamos el contenido de userData, pedimos notificar a todos los observers.
         notifyAll();
         //console.log("[auth.js login] Autenticacion exitosa:", userData)
@@ -31,9 +47,23 @@ export function login ({email,password}){
         }
         console.error("[auth.js login] Error al autenticar :",output);
         return output;
-    })
+    });
+
 
 }
+
+export function logout(){
+    // userData ={
+    //     id:null,
+    //     email:null,
+
+    // }
+    // notifyAll();
+    return  signOut(auth);
+    
+}
+
+
 export function subscribeToAuth(callback){
     //Agregamos el nuevo observer/callback al stack del observers
     observers.push(callback);

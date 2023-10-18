@@ -1,6 +1,6 @@
 <script>
 //import {planesActualizados} from './services/plans.js';
-import {subscribeToAuth} from './services/auth.js';
+import {subscribeToAuth , logout} from './services/auth.js';
 import Pricing from './pages/Pricing.vue';
 
 export default {
@@ -14,6 +14,11 @@ export default {
             }
         }
     },
+    methods:{
+        handleLogout(){
+       logout();
+        }
+    },
     mounted(){
         subscribeToAuth(newUserData =>{
             this.user = {
@@ -25,6 +30,7 @@ export default {
     
    
 }
+
 </script>
 
 <template>
@@ -65,11 +71,12 @@ export default {
     <li>  <router-link to="/registrar" class="btn-ingresar">Registrar</router-link></li>
     </template>
     <template v-else>
+        <!--REALIZAR LA PAGINA DE MI PERFIL Y RUTERLO-->
         <li>  <router-link to="/iniciar-sesion" class="btn-ingresar">Mi Perfil</router-link></li>
     <li>
-        <form action="">
+        <form action="" @submit.prevent = "handleLogout">
 
-            <button type="submit">email(cerrar sesión)</button>
+            <button type="submit">Hola, {{user.email}}(cerrar sesión)</button>
         </form>
     </li>
 </template>
