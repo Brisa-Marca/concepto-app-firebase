@@ -15,7 +15,11 @@ export default {
         handleSubmit(){
             register({
                 ...this.form,
-            });
+            })
+            .then( user =>{
+             //Redireccion al perfil.
+             this.$router.push({path: '/perfil'})
+            })
         }
     }
 }
@@ -41,8 +45,6 @@ export default {
                 <button type="submit"  class="main-cta login">Crear cuenta</button>
                 
             </form>
-            <div class="registrate-content">
-                <p>¿Ya tienes una cuenta?</p> <span class="p-register">Iniciar sesión</span>
-            </div>
+          
         </div>
 </template>

@@ -12,10 +12,13 @@ import { subscribeToAuth } from '../services/auth';
 const routes = [
     {path: '/', component:Home,},
     {path: '/pricing', component:Pricing,},
-    {path: '/contacto', component:Contacto,},
+    {path: '/contacto', component:Contacto,
+meta:{requiresAuth:true}},
+{path: '/perfil', component:Profile,
+meta:{requiresAuth:true}},
     {path: '/iniciar-sesion', component:Login,},
     {path: '/registrar', component:Register,},
-    {path: '/perfil', component:Profile,}
+   
 ];
 
 //Creamos el router
@@ -24,7 +27,7 @@ const router = createRouter({
     history:createWebHashHistory(),
 
 })
-//Proteccio de las rutas
+//Proteccion de las rutas
 let user ={
     id:null,
     email:null,
@@ -33,8 +36,10 @@ subscribeToAuth(newUser =>{
     user = {...newUser};
 })
 
-router.beforeEach((to,from)=>{
-    if(user.id === null && (to.path === '/contacto'|| to.path === '/perfil')){
+router.beforeEach((to, from)=>{
+    if(user.id === null && 
+        to.meta?.requiresAuth 
+        ){
         return{ path: '/iniciar-sesion'}
     }
 

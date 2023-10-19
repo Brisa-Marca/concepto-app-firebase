@@ -16,7 +16,11 @@ export default {
     },
     methods:{
         handleLogout(){
-       logout();
+       logout()
+       .then(user =>{
+             //Redireccion al perfil.
+             this.$router.push({path: '/iniciar-sesion'})
+            })
         }
     },
     mounted(){
@@ -72,7 +76,7 @@ export default {
     </template>
     <template v-else>
         <!--REALIZAR LA PAGINA DE MI PERFIL Y RUTERLO-->
-        <li>  <router-link to="/iniciar-sesion" class="btn-ingresar">Mi Perfil</router-link></li>
+        <li>  <router-link to="/perfil" class="btn-ingresar">Mi Perfil</router-link></li>
     <li>
         <form action="" @submit.prevent = "handleLogout">
 

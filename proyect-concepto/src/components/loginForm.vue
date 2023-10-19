@@ -20,7 +20,8 @@ import { login} from "../services/auth.js";
                //password:this.form.password,
             })
             .then(user =>{
-             
+             //Redireccion al perfil.
+             this.$router.push({path: '/perfil'})
             })
         }
 
@@ -42,8 +43,6 @@ import { login} from "../services/auth.js";
                 <button type="submit"  class="main-cta login">Iniciar sesión</button>
                 
             </form>
-            <div class="registrate-content">
-                <p>¿Aun no tienes cuenta?</p> <span class="p-register">Registrate</span>
-            </div>
+            
         </div>
 </template>
