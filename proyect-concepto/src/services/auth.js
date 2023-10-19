@@ -1,4 +1,4 @@
-import { onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { auth } from "./firebase";
 
 //Funcionalidad relativa a la autenticación en la app.
@@ -25,6 +25,22 @@ onAuthStateChanged(auth,user =>{
     }
     notifyAll();
 });
+
+export function register({email,password}){
+    return createUserWithEmailAndPassword(auth, email, password)
+    .then(()=>{
+        return{...userData};
+    })
+    .catch(error =>{
+        return {
+            code:error.code,
+            message: error.message,
+           }
+
+    });
+
+}
+
 export function login ({email,password}){
     return signInWithEmailAndPassword(auth, email, password)
     //Trae las credenciales del usuario

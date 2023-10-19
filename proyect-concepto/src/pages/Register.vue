@@ -1,6 +1,23 @@
 <script>
+import { register } from '../services/auth.js';
+
 export default {
     name: 'Register',
+    data(){
+        return{
+            form:{
+                email:'',
+                password:'',
+            }
+        }
+    },
+    methods:{
+        handleSubmit(){
+            register({
+                ...this.form,
+            });
+        }
+    }
 }
 </script>
 <template>
@@ -12,14 +29,14 @@ export default {
             
         </section>
         <div class="checkout-form form-login">
-            <form action="#">
+            <form action="#" @submit.prevent="handleSubmit">
                 <div class="form-input">
                     <label for="user">Nombre de usuario</label>
-                    <input type="text" placeholder="Nombre de usuario" id="user" required>
+                    <input type="text" placeholder="Nombre de usuario" id="user" v-model="form.email" required>
                 </div>
                 <div class="form-input">
                     <label for="pass">Contraseña</label>
-                    <input type="password"  id="pass" placeholder="**********" required>
+                    <input type="password"  id="pass" placeholder="**********" v-model="form.password" required>
                 </div>
                 <button type="submit"  class="main-cta login">Crear cuenta</button>
                 
