@@ -18,6 +18,7 @@ export function chatSubscribeToMessage(callback){
    return onSnapshot(q,snapshot=>{
         const messages = snapshot.docs.map(doc =>{
             return{
+                userId: doc.data().userId,
                user: doc.data().user,
             message:doc.data().message,
             created_at:doc.data().created_at.toDate(),
