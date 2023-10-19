@@ -73,7 +73,7 @@ export default {
    <ul>
     <template v-if="user.id === null">
     <li>  <router-link to="/iniciar-sesion" class="btn-ingresar">Ingresar</router-link></li>
-    <li>  <router-link to="/registrar" class="btn-ingresar">Registrar</router-link></li>
+    
     </template>
     <template v-else>
         <!--REALIZAR LA PAGINA DE MI PERFIL Y RUTERLO-->

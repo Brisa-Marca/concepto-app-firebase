@@ -1,12 +1,15 @@
 <script>
-
 import {chatSubscribeToMessage, chatSaveMessage} from './../services/chat.js';
 import { subscribeToAuth } from '../services/auth.js';
-import {formatDate} from '../helpers/date.js';
+import { formatDate } from '../helpers/date.js';
+import  BaseLoader  from '../components/BaseLoader.vue';
+
 export default{
     name:'Contacto',
+    components:{ BaseLoader },
     data(){
         return{
+            LoadingMessages: true,
             messages:[],
             newMessage:{
              user:'',
@@ -38,8 +41,10 @@ export default{
         }
     },
     mounted() {
+        this.LoadingMessages = true;
         this.chatUnsubscribe = chatSubscribeToMessage(messages =>{
             this.messages = messages;
+            this.LoadingMessages = false;
         });
         this.authUnsubsribe = subscribeToAuth(newUser =>{
             this.user = {...newUser};
@@ -63,12 +68,17 @@ export default{
     
            </section>
            <section class="content-chat">
+            <template  v-if="LoadingMessages">
+              <BaseLoader/>
+            </template>
+            <template v-else>
             <div id="chat" v-for="mensaje in messages">
-                <h2 class="title-plans ">Usuario:{{mensaje.user}}</h2>
+                <h2 class="title-plans "> <router-link :to="`/usuario/${mensaje.userId}`">Usuario:{{mensaje.user}}</router-link></h2>
                          <p>Mensaje:{{mensaje.message}}</p>
-                         <div>{{ dateToString(mensaje.created_at) }}</div>
+                         <div>{{ dateToString(mensaje.created_at)}}</div>
                 
             </div>
+        </template>
             <div class="form-chat checkout-form form-login"  id="chat-form">
                 <form action="#"
                 @submit.prevent="sendMessage">

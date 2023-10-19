@@ -45,6 +45,10 @@ export default {
                 <button type="submit"  class="main-cta login">Crear cuenta</button>
                 
             </form>
+            <div class="registrate-content">
+               <p>¿Ya tienes una cuenta?</p>
+               <span class="p-register"> <router-link :to="`/iniciar-sesion`" >Iniciar sesión</router-link></span>
+           </div>
           
         </div>
 </template>
