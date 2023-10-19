@@ -1,6 +1,55 @@
 <script>
+
+import {chatSubscribeToMessage, chatSaveMessage} from './../services/chat.js';
+import { subscribeToAuth } from '../services/auth.js';
+import {formatDate} from '../helpers/date.js';
 export default{
     name:'Contacto',
+    data(){
+        return{
+            messages:[],
+            newMessage:{
+             user:'',
+             message:''
+           },
+           user:{
+            id:null,
+            email:null,
+           },
+           authUnsubsribe:()=>{},
+           chatUnsubscribe: () => {},
+
+        }
+    },
+    
+    methods:{
+        sendMessage(){
+            chatSaveMessage({
+                userId:this.user.id,
+                user: this.user.email,
+                message: this.newMessage.message,
+            })
+            .then(()=>{
+                this.newMessage.message = '';
+            });
+        },
+        dateToString(date){
+            return formatDate(date);
+        }
+    },
+    mounted() {
+        this.chatUnsubscribe = chatSubscribeToMessage(messages =>{
+            this.messages = messages;
+        });
+        this.authUnsubsribe = subscribeToAuth(newUser =>{
+            this.user = {...newUser};
+        })
+    },
+    unmounted(){
+         // Muy importante no olvidarse de limpiar las suscripciones. De lo contrario, vamos a tener un "memory leak".
+        this.authUnsubsribe();
+        this.chatUnsubscribe();
+    }
 }
 </script>
 
@@ -14,8 +63,30 @@ export default{
     
            </section>
            <section class="content-chat">
-            <div class="chat">
+            <div id="chat" v-for="mensaje in messages">
+                <h2 class="title-plans ">Usuario:{{mensaje.user}}</h2>
+                         <p>Mensaje:{{mensaje.message}}</p>
+                         <div>{{ dateToString(mensaje.created_at) }}</div>
                 
             </div>
+            <div class="form-chat checkout-form form-login"  id="chat-form">
+                <form action="#"
+                @submit.prevent="sendMessage">
+                    <div class="form-input">
+                        <label for="user">Usuario</label>
+                        <p>{{ user.email }}</p>
+                        <!-- <input type="text" id="user" v-model="newMessage.user"> -->
+                    </div>
+                    <div class="form-input">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea type="text" id="mensaje" v-model="newMessage.message"></textarea>
+                    </div>
+                    <button type="submit" class="main-cta login">Enviar</button>
+                   
+                </form>
+                
+
+            </div>
+           
            </section>
 </template>

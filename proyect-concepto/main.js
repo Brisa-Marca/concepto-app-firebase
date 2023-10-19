@@ -1,9 +1,32 @@
  // Import the functions you need from the SDKs you need
-
-
+// import { chatSaveMessage } from "./src/services/chat.js";
+// import {collection} from "firebase/firestore";
+// import { db } from "../proyect-concepto/src/services/firebase.js";
 
  /******* Leyendo de firestore *****/
- const contentPlans = document.getElementById("planes-content");
+ //const refChat = collection(db, "chat");
+ const contentPlans = document.getElementById("planes-content");//este es el unico que estaba de firestore los demas se eliminaban
+ //const chatForm = document.getElementById("chat-form");
+//  const chatForm = document.getElementById("chat-form");
+// const user = document.getElementById("user");
+// const message = document.getElementById("message");
+
+
+// chatForm.addEventListener("submit",function(e){
+//     e.preventDefault();
+ 
+//     const data = {
+//      user:user.value,
+//      message:message.value,
+//     }
+ 
+//     chatSaveMessage(data)
+//  //    addDoc(refChat,data)
+//  .then(()=>{
+//      //user.value = "";
+//            message.value = "";
+//             })
+//  })
 
 
  

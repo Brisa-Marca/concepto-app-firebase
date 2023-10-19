@@ -1,4 +1,4 @@
-//Realizar los planes con onsnapshop para realizar despues la carpeta src
+//Realizar los planes con onsnapshot para realizar despues la carpeta src
 import {collection, onSnapshot } from "firebase/firestore";
 import { db } from "./firebase.js";
 
