@@ -98,7 +98,7 @@ export default {
     
     </template>
     <template v-else>
-        <!--REALIZAR LA PAGINA DE MI PERFIL Y RUTERLO-->
+        <!--REALIZAR LA PAGINA DE MI PERFIL Y RUTEARLO-->
         <li>  <router-link to="/perfil" class="btn-ingresar">Mi Perfil</router-link></li>
     <li>
         <form action="" @submit.prevent = "handleLogout">
