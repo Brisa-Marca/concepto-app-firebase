@@ -48,5 +48,6 @@ export default{
                     </div>
                     </div>
        </section>
+       <!--Contenido de pricing :las tablas de parte de admin-->
 
 </template>

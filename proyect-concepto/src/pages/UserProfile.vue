@@ -23,5 +23,5 @@ export default{
 
 <template>
     <h1>Perfil de {{userProfile.email}}</h1>
-    <a href="#">Iniciar conversacion Privada</a>
+    <router-link :to="`/usuario/${userProfile.id}/chat`">Iniciar conversacion Privada</router-link> 
 </template>

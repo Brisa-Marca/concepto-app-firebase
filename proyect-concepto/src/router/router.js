@@ -5,6 +5,9 @@ import Login from '../pages/Login.vue';
 import Register from '../pages/Register.vue';
 import Profile from '../pages/Profile.vue';
 import UserProfile from '../pages/UserProfile.vue';
+import PrivateChat from '../pages/PrivateChat.vue';
+import Dashboard from '../pages/Dashboard.vue';
+import Mensajes from '../pages/Mensajes.vue';
 import { createRouter, createWebHashHistory } from 'vue-router';
 import { subscribeToAuth } from '../services/auth';
 
@@ -14,11 +17,17 @@ const routes = [
     {path: '/', component:Home,},
     {path: '/pricing', component:Pricing,},
     {path: '/contacto', component:Contacto,
-meta:{requiresAuth:true}},
+      meta:{requiresAuth:true}},
 {path: '/perfil', component:Profile,
 meta:{requiresAuth:true}},
 {path: '/usuario/:id', component:UserProfile,
 meta:{requiresAuth:true}},
+{path: '/usuario/:id/chat', component:PrivateChat,
+meta:{requiresAuth:true}},
+{path: '/admin/dashboard', component:Dashboard,
+},
+{path: '/admin/mensajes', component:Mensajes,
+},
     {path: '/iniciar-sesion', component:Login,},
     {path: '/registrar', component:Register,},
    

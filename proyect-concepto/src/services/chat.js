@@ -21,7 +21,7 @@ export function chatSubscribeToMessage(callback){
                 userId: doc.data().userId,
                user: doc.data().user,
             message:doc.data().message,
-            created_at:doc.data().created_at.toDate(),
+            created_at:doc.data().created_at?.toDate(),
 
             }
         });

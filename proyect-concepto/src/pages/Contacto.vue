@@ -72,26 +72,24 @@ export default{
               <BaseLoader/>
             </template>
             <template v-else>
-            <div id="chat" v-for="mensaje in messages">
-                <h2 class="title-plans "> <router-link :to="`/usuario/${mensaje.userId}`">Usuario:{{mensaje.user}}</router-link></h2>
-                         <p>Mensaje:{{mensaje.message}}</p>
-                         <div>{{ dateToString(mensaje.created_at)}}</div>
+            <div id="chat" class="chat" v-for="mensaje in messages">
+                <h3 class="usuario-chat "> <router-link :to="`/usuario/${mensaje.userId}`">{{mensaje.user}}</router-link></h3>
+                         <p>{{mensaje.message}}</p>
+                         <div class="fecha-hora">{{ dateToString(mensaje.created_at)}}</div>
                 
             </div>
         </template>
-            <div class="form-chat checkout-form form-login"  id="chat-form">
+            <div class="form-chat "  id="chat-form">
                 <form action="#"
-                @submit.prevent="sendMessage">
-                    <div class="form-input">
-                        <label for="user">Usuario</label>
-                        <p>{{ user.email }}</p>
-                        <!-- <input type="text" id="user" v-model="newMessage.user"> -->
+                @submit.prevent="sendMessage" class="content-form-chat">
+                    <div class="content-textarea">
+                        <label for="mensaje"></label>
+                        <textarea  class="textarea" type="text" id="mensaje" v-model="newMessage.message" placeholder="Hola,tengo una duda..."></textarea>
                     </div>
-                    <div class="form-input">
-                        <label for="mensaje">Mensaje</label>
-                        <textarea type="text" id="mensaje" v-model="newMessage.message"></textarea>
+                    <div>
+                        <button type="submit" class="main-cta enviar">Enviar</button>
                     </div>
-                    <button type="submit" class="main-cta login">Enviar</button>
+                    
                    
                 </form>
                 

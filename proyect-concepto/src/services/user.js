@@ -7,11 +7,6 @@ export  async function getUserProfileById(id){
         id,
         email:snapshot.data().email,
     }
-//  const snapshot = await getDoc(doc(db,`/users/${id}`));
-//  return{
-//     id,
-//     email:snapshot.data().email,
- //}
 }
 
 export  async function createUserProfile(id,data){
