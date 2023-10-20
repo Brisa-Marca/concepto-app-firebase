@@ -22,6 +22,13 @@ export default{
 
 
 <template>
-    <h1>Perfil de {{userProfile.email}}</h1>
-    <router-link :to="`/usuario/${userProfile.id}/chat`">Iniciar conversacion Privada</router-link> 
+    <div class="userprofile-content">
+        <h1>Perfil de {{userProfile.email}}</h1>
+        <div class="btn-userProfile">
+            <router-link  :to="`/usuario/${userProfile.id}/chat`">Iniciar conversacion Privada</router-link>
+        </div>
+    
+
+    </div>
+    
 </template>

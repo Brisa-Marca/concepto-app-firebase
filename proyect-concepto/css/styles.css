@@ -2124,6 +2124,25 @@ textarea{
 .btn-perfil{
     margin-bottom: 20px;
 }
+.userprofile-content{
+    
+    padding: 30px;
+    margin: auto;
+    text-align: center;
+
+}
+.btn-userProfile{
+    background-color: #2741E8;
+    padding: 20px;
+    width: 30%;
+    margin: auto;
+    border-radius: 20px;
+    margin-top: 10px;
+    
+}
+.btn-userProfile >a {
+    color: white;
+}
 /*Panel de administracion*/
 .admin-btn{
     display: flex;
