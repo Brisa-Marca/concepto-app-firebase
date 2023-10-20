@@ -530,6 +530,7 @@ body {
     padding: 60px 20px 10px 20px;
     border-radius: 32px;
     border: 0.5px solid #8BA5FF;
+    width: 50%;
 }
 .plans h2{
     color: #0A243F;
@@ -640,6 +641,13 @@ body {
     .active>a::after {
         content: "";
         position: absolute;
+    }
+    .planes-content{
+        flex-direction: column;
+       
+    }
+    .plans{
+        width: 80%;
     }
 
 }
