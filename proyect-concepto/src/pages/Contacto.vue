@@ -40,7 +40,7 @@ export default{
         }
     },
     async mounted(){
-        this.idAdmin;
+        //this.idAdmin;
         //this.userProfile = await getUserProfileById(this.$route.params.id);
         this.authUnsubscribe = subscribeToAuth(user => this.userAuth = user);
 
