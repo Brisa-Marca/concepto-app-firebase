@@ -40,7 +40,7 @@ export  async function register({email,password}){
       try {
         const userCredentials = await createUserWithEmailAndPassword(auth, email, password);
 
-        
+
 
       return{...userData};
       } catch (error) {
@@ -91,6 +91,11 @@ export function subscribeToAuth(callback){
     //Retornamos la funcion para cancelar la suscripción,que filtra el callback que acabamos de agregar del array.
     return () =>{ observers = observers.filter(obs => obs !== callback)}
 }
+
+
+//realizar una funcion en donde relfejemos que si es el user id = idUserAdmin ,me muestre el nav  del panel admin y si no me muestre el nav del usuario comun.
+
+
 
 function notify(callback){
     callback({

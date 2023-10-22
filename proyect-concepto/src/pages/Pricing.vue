@@ -1,10 +1,16 @@
 <script>
 import {planesActualizados} from '../services/plans.js';
+import {subscribeToAuth } from '../services/auth.js'
 export default{
     name: 'Pricing',
     data(){
         return{
             actual :[],
+            user:{
+                id: null,
+                email:null,
+
+            }
 
         }
     },
@@ -12,12 +18,37 @@ export default{
         planesActualizados(actual =>{
             this.actual = actual;
         });
+        subscribeToAuth(newUserData =>{
+            this.user = {
+                ...newUserData,
+            }
+        });
+
     }
 }
 </script>
 <template>
    
-  <section class="pricing-content">
+  
+  <template  v-if="user.id === 'Q9DQIiTc2scDo10DKvmsUrsZY6a2'">
+    <!--Contenido de pricing :las tablas de parte de admin-->
+    <section class="pricing-content">
+        <h2 class="h1 h1-bigger text-center mt-8 mb-56 title-pricing">Administrar opciones de contratación.</h2>
+        <table >
+            <tr>
+                <td>ID</td>
+                <td>Titulo</td>
+                <td>Publicación</td>
+                <td>Acciones</td>
+            </tr>
+                <tr v-for="plans in actual"></tr>
+           
+
+        </table>
+       </section>
+   </template>
+  <template v-else>
+    <section class="pricing-content">
    <p class="subtitle subtitle-center-lines text-center">Pricing</p>
    <h2 class="h1 h1-bigger text-center mt-8 mb-56 title-pricing">Comenza a potenciar tu carrera profesional con concepto</h2>
    <p class="paragraph mb-8 p-pricing">
@@ -48,6 +79,8 @@ export default{
                     </div>
                     </div>
        </section>
-       <!--Contenido de pricing :las tablas de parte de admin-->
+  </template>
+   
+       
 
 </template>

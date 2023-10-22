@@ -12,8 +12,8 @@ export default{
                 <h1 class="hero-section-title mb-24">Panel de Administración de concepto</h1>
          </div>
          <div class="admin-btn">
-            <div class="btn-admin-pricing"><p class="p-pricing">Administrar Pricing</p></div>
-            <div class="btn-admin-mensaje"><p class="p-mensaje">Administrar Mensajes</p></div>
+            <router-link to="/admin/pricing">  <div class="btn-admin-pricing"><p class="p-pricing">Administrar Pricing </p></div></router-link>
+            <router-link to="/admin/mensajes">  <div class="btn-admin-mensaje"><p class="p-mensaje">Administrar Mensajes</p></div></router-link>
          </div>
 
     </section>
