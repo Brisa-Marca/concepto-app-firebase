@@ -5,6 +5,7 @@ export default{
 }
 </script>
 <template>
+  <!--Realizar el modificar los datos.-->
     <section class="content-login">
           <div >
             <img src="../../assets/svg/favicon.svg" alt="" class="img-login">

@@ -1,20 +1,23 @@
 
 import { addDoc, collection, doc, DocumentReference, getDocs, onSnapshot, orderBy, query, serverTimestamp, where } from "firebase/firestore";
 import { db } from "./firebase";
+import { useRoute } from "vue-router";
 
 // Acá vamos a guardar los documentos de los chats privados.
 const chatDocsCache = {};
 
 /**
  * 
- * @param {{user1: string, user2: string}} users
+ * @param {{user1: string, idUserAdmin: 'string'}} users
  * @param {() => {}} callback 
  * @returns {Promise<import("firebase/auth").Unsubscribe>}
  */
-//const user2 ='Q9DQIiTc2scDo10DKvmsUrsZY6a2';
+const user2 ='Q9DQIiTc2scDo10DKvmsUrsZY6a2';
+//console.log(idAdmin); Intentar cambiar el idUserCon user2
 export async function subscribeToPrivateChat({user1, user2}, callback) {
+    //console.log(user1)
+    //console.log(idUserAdmin),Me lo toma afuera pero no adentro
     const chatDoc = await getPrivateChatDocument({user1, user2});
-
     const q = query(
         collection(db, `private-chats/${chatDoc.id}/messages`), 
         orderBy('created_at')
@@ -44,7 +47,7 @@ export async function sendPrivateChatMessage({
     receiver,
     message,
 }) {
-    const document = await getPrivateChatDocument({user1: sender, user2: receiver});
+    const document = await getPrivateChatDocument({user1: sender,user2: receiver});
 
     // Ahora que tenemos el id del documento del chat privado, podemos agregar el mensaje de chat.
     const messagesRef = collection(db, `private-chats/${document.id}/messages`);
@@ -54,13 +57,13 @@ export async function sendPrivateChatMessage({
         created_at: serverTimestamp(),
     });
     return {
-        id: response.id,
+        idUserAdmin: response.idUserAdmin,
     }
 }
 
 /**
  * 
- * @param {{user1: string, user2: string}} data 
+ * @param {{user1: string, user2: 'string'}} data 
  * @returns {Promise}
  */
 async function getPrivateChatDocument({user1, user2}) {
@@ -97,10 +100,10 @@ async function getPrivateChatDocument({user1, user2}) {
 
 /**
  * 
- * @param {{user1: string, user2: string}} data
+ * @param {{user1: string, user2: 'string'}} data
  * @returns {Promise}
  */
-async function createPrivateChatDocument({user1, user2}) {
+async function createPrivateChatDocument({user1,user2}) {
     return addDoc(collection(db, `private-chats`), {
         users: {
             [user1]: true,
@@ -124,18 +127,18 @@ function getFromDocsCache({user1, user2}) {
  * @param {{user1: string, user2: string}} keyData
  * @param {DocumentReference} doc
  */
-function addToDocsCache({user1, user2}, doc) {
+function addToDocsCache({user1,user2}, doc) {
     const key = getDocsCacheKey({user1, user2});
     chatDocsCache[key] = doc;
 }
 
 /**
  * 
- * @param {{user1: string, user2: string}} users
+ * @param {{user1: string, user2: 'string'}} users
  * @returns {string}
  */
 function getDocsCacheKey({user1, user2}) {
-    return user1 > user2 ?
+    return user1 >user2 ?
         user1 + user2 :
         user2 + user1;
 }

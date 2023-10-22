@@ -11,6 +11,7 @@ import Mensajes from '../pages/Mensajes.vue';
 import { createRouter, createWebHashHistory } from 'vue-router';
 import { subscribeToAuth } from '../services/auth';
 
+
 //definimos la lista de rutas
  
 const routes = [
@@ -18,16 +19,18 @@ const routes = [
     {path: '/pricing', component:Pricing,},
     {path: '/contacto', component:Contacto,
       meta:{requiresAuth:true}},
+    //   {path: '/contacto/:idUserAdmin', component:Contacto,
+    //   meta:{requiresAuth:true}},
 {path: '/perfil', component:Profile,
 meta:{requiresAuth:true}},
-{path: '/usuario/:id', component:UserProfile,
-meta:{requiresAuth:true}},
-{path: '/usuario/:id/chat', component:PrivateChat,
-meta:{requiresAuth:true}},
-{path: '/admin/dashboard', component:Dashboard,
-},
-{path: '/admin/mensajes', component:Mensajes,
-},
+// {path: '/usuario/:id', component:UserProfile,
+// meta:{requiresAuth:true}},
+// {path: '/usuario/:id/chat', component:PrivateChat,
+// meta:{requiresAuth:true}},
+// {path: '/admin/dashboard', component:Dashboard,
+// meta:{requiresAuth:true}},
+// {path: '/admin/mensajes', component:Mensajes,
+// meta:{requiresAuth:true}},
     {path: '/iniciar-sesion', component:Login,},
     {path: '/registrar', component:Register,},
    

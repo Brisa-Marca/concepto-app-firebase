@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
 import { getUserProfileById } from '../services/user';
 
 export default{
@@ -18,17 +18,18 @@ export default{
     }
 
 }
-</script>
+</script>-->
 
 
 <template>
-    <div class="userprofile-content">
+    <!--
+     <div class="userprofile-content">
         <h1>Perfil de {{userProfile.email}}</h1>
         <div class="btn-userProfile">
             <router-link  :to="`/usuario/${userProfile.id}/chat`">Iniciar conversacion Privada</router-link>
         </div>
     
 
-    </div>
-    
-</template>
+    </div> 
+-->
+</template> 

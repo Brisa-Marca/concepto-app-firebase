@@ -1,6 +1,6 @@
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { auth } from "./firebase";
-import { createUserProfile } from "./user";
+//import { createUserProfile } from "./user";
 
 //Funcionalidad relativa a la autenticación en la app.
 //Primero vamos a guardar en una variable interna los datos de la autenticacion
@@ -40,11 +40,9 @@ export  async function register({email,password}){
       try {
         const userCredentials = await createUserWithEmailAndPassword(auth, email, password);
 
-        //Creamos el perfil del usuario utilizando user profile
-        createUserProfile(userCredentials.user.uid,{ 
-            email
-        })
-        return{...userData};
+        
+
+      return{...userData};
       } catch (error) {
         return {
             code:error.code,

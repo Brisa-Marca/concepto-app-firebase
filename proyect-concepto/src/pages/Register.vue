@@ -18,7 +18,7 @@ export default {
             })
             .then( user =>{
              //Redireccion al perfil.
-             this.$router.push({path: '/perfil'})
+             this.$router.push({path: '/iniciar-sesion'})
             })
         }
     }
