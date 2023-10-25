@@ -82,10 +82,6 @@ export default {
             <router-link to="/contacto" class="navigation-anchor">Contactanos</router-link>
            
         </li>
-        <!-- <li>
-            <router-link to="/contacto/:iduserAdmin" class="navigation-anchor">Contactanos</router-link>
-           
-        </li> -->
       
     </ul>
 </template>

@@ -93,9 +93,6 @@ export function subscribeToAuth(callback){
 }
 
 
-//realizar una funcion en donde relfejemos que si es el user id = idUserAdmin ,me muestre el nav  del panel admin y si no me muestre el nav del usuario comun.
-
-
 
 function notify(callback){
     callback({

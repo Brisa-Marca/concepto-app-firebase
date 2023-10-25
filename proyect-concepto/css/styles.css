@@ -2221,3 +2221,29 @@ tbody>tr>td{
     border: 0;
 
 }
+/*Seccion de usuarios que mandan un mensaje al admin*/
+.content-users-admin{
+
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    
+    padding: 50px 10px;
+    overflow: hidden;
+   
+}
+.card-users{
+    text-align: center;
+    margin: 30px 0px;
+}
+.card-users >img{
+    margin: auto;
+    padding-bottom: 10px;
+}
+.btn-users{
+    background-color:var(--color-primary-400);
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: white;
+    border: 0;
+    margin-top: 20px;
+}
