@@ -32,20 +32,47 @@ export default{
   
   <template  v-if="user.id === 'Q9DQIiTc2scDo10DKvmsUrsZY6a2'">
     <!--Contenido de pricing :las tablas de parte de admin-->
-    <section class="pricing-content">
+    <section class="pricing-content" >
         <h2 class="h1 h1-bigger text-center mt-8 mb-56 title-pricing">Administrar opciones de contratación.</h2>
-        <table >
-            <tr>
-                <td>ID</td>
-                <td>Titulo</td>
-                <td>Publicación</td>
-                <td>Acciones</td>
-            </tr>
-                <tr v-for="plans in actual"></tr>
-           
+    </section>
+        <div class="content-table-admin">
+          <table class="table table-hover">
+               <thead >
+                  <tr class="table-header">
+                      <th >ID</th>
+                      <th >Nombre</th>
+                      <th >Descripción</th>
+                      <th >Precio</th>
+                      <th >Acciones</th>
+                      <!-- <th scope="col">Caracteristicas</th> -->
+            
+                  </tr>
+              </thead>
+               <tbody v-for="plans in actual">
+                       <tr>
+                           <td>
+                               <!-- <p>{{ plans.id }}</p> -->
+                           </td>
+                           <td>
+                               <p>{{plans.nombre}} </p>
+                           </td>
+                           <td>
+                               <p>{{plans.descripción}}</p>
+                           </td>
+                           <td>
+                               <p>$ {{plans.precio}}</p>
+                           </td>
 
-        </table>
-       </section>
+
+                           <td class="btn-content">
+                               <button class="btn-ingresar">Editar</button>
+                               <button class="btn-eliminar">Eliminar</button>
+                           </td>
+                       </tr>
+               </tbody>
+    </table>
+        </div>
+      
    </template>
   <template v-else>
     <section class="pricing-content">

@@ -2168,3 +2168,56 @@ textarea{
     margin: auto;
     text-align: center;
 }
+
+/*Secion  pricing de parte del usuario administrador*/
+.table {
+    margin: 0 auto;
+    overflow-x: scroll;
+    max-width: 100%;
+}
+/* .table-header {
+    background-color: #f5eaff;
+    border-radius: 8px 8px 0 0;
+} */
+.content-table-admin{
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 40px;
+    width: 80%;
+}
+
+.table-header{
+    padding: 10px;
+   
+   
+}
+.table-header > th{
+    padding: 10px 30px;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    
+}
+tbody>tr>td{
+    padding: 10px 20px;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+.btn-content{
+    display: block;
+    
+}
+.btn-content >button{
+    padding: 5px 20px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.btn-eliminar{
+    background-color: #CE5151;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: white;
+    border: 0;
+
+}
