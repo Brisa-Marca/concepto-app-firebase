@@ -39,7 +39,7 @@ export default{
           <table class="table table-hover">
                <thead >
                   <tr class="table-header">
-                      <th >ID</th>
+                      <!-- <th >ID</th> -->
                       <th >Nombre</th>
                       <th >Descripción</th>
                       <th >Precio</th>
@@ -50,9 +50,9 @@ export default{
               </thead>
                <tbody v-for="plans in actual">
                        <tr>
-                           <td>
-                               <!-- <p>{{ plans.id }}</p> -->
-                           </td>
+                           <!-- <td>
+                                <p>{{ plans.id }}</p> 
+                           </td> -->
                            <td>
                                <p>{{plans.nombre}} </p>
                            </td>

@@ -10,9 +10,9 @@ export default{
 
     data() {
         return {
-            loadingMessages: true,
+            // loadingMessages: true,
             messages: [],
-            loadingProfile: true,
+            // loadingProfile: true,
             userProfile: {
                 id: null,
                 email: null,

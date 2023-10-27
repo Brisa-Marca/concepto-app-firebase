@@ -10,9 +10,9 @@ export default{
 
     data() {
         return {
-            loadingMessages: true,
+            // loadingMessages: true,
             messages: [],
-            loadingProfile: true,
+            // loadingProfile: true,
             idUserAdmin:'Q9DQIiTc2scDo10DKvmsUrsZY6a2',
             newMessage: {
                 message: '',

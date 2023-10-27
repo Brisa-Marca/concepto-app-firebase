@@ -1,6 +1,14 @@
 <script>
 export default{
     name:'Mensajes',
+    data(){
+        return{
+            userProfile: {
+                id: null,
+                email: null,
+            }
+        }
+    }
    
 }
 </script>
