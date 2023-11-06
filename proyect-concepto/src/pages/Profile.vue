@@ -5,7 +5,7 @@ export default{
 }
 </script>
 <template>
-  <!--Realizar el modificar los datos.-->
+  <!--Realizar el modificar los datos(en especial el eliminar y editar datos).-->
     <section class="content-login">
           <div >
             <img src="../../assets/svg/favicon.svg" alt="" class="img-login">
