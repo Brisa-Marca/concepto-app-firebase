@@ -19,9 +19,9 @@ import { login} from "../services/auth.js";
                //email: this.form.email,
                //password:this.form.password,
             })
-            .then(user =>{
-             //Redireccion al perfil.
-             this.$router.push({path: '/perfil'})
+            .then( user =>{
+             //Redireccion al perfil del usuario.
+             this.$router.push({path: '/perfil'});
             })
         }
 
@@ -33,8 +33,8 @@ import { login} from "../services/auth.js";
      <div class="checkout-form form-login">
             <form action="#" @submit.prevent="handleLogin">
                 <div class="form-input">
-                    <label for="user">Nombre de usuario</label>
-                    <input type="text" placeholder="Nombre de usuario" id="user" v-model="form.email" required>
+                    <label for="user">Correo Electronico</label>
+                    <input type="email" placeholder="Correo Electronico" id="user" v-model="form.email" required>
                 </div>
                 <div class="form-input">
                     <label for="pass">Contraseña</label>

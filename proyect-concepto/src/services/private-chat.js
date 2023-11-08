@@ -1,7 +1,7 @@
 
 import { addDoc, collection, doc, DocumentReference, getDocs, onSnapshot, orderBy, query, serverTimestamp, where } from "firebase/firestore";
 import { db } from "./firebase";
-import { useRoute } from "vue-router";
+//import { useRoute } from "vue-router";
 
 // Acá vamos a guardar los documentos de los chats privados.
 const chatDocsCache = {};
@@ -57,7 +57,7 @@ export async function sendPrivateChatMessage({
         created_at: serverTimestamp(),
     });
     return {
-        idUserAdmin: response.idUserAdmin,
+        user2: response.user2,
     }
 }
 
