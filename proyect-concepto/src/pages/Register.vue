@@ -36,7 +36,7 @@ export default {
             <form action="#" @submit.prevent="handleSubmit">
                 <div class="form-input">
                     <label for="user">Correo Electronico</label>
-                    <input type="email" placeholder="Correo Electronico" id="user" v-model="form.email" required>
+                    <input type="email" placeholder="ejemplo@gmail.com" id="user" v-model="form.email" required>
                 </div>
                 <div class="form-input">
                     <label for="pass">Contraseña</label>
