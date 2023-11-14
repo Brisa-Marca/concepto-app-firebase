@@ -51,6 +51,8 @@ export default{
     },
     unmounted(){
       this.authUnsubscribe();
+      //this.authUnsubsribe();
+        this.chatUnsubscribe();
     }
 }
 </script>

@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 import { auth } from "./firebase";
 //import { createUserProfile } from "./user";
 
@@ -7,6 +7,7 @@ import { auth } from "./firebase";
 let userData = {
     id:null,
     email:null,
+    displayName:null,
 
 }
 let observers =[];
@@ -20,12 +21,14 @@ onAuthStateChanged(auth,user =>{
     userData = {
         id:user.uid,
         email:user.email,
+        displayName:user.displayName,
     }
     
     }else{
         userData = {
             id:null,
             email:null,
+            displayName:null,
         }
         //localStorage.removeItem('userData')
 
@@ -79,6 +82,27 @@ export function logout(){
     
     return  signOut(auth);
     
+}
+
+//Editar los datos del perfil autentificado
+export async function editUser({displayName}){
+    //Primero actualizamos la autentificación
+     await updateProfile(auth.currentUser,{
+        displayName
+     })
+     //Despues se actualiza el perfil del usuario autentificado.En este caso en relaidad es el userProfile
+    //  await editUserProfile (userData.id,{
+    //     displayName
+    //  })
+
+    //actualizamos los datos del usuario
+    userData = {
+      ...userData,
+      displayName,
+    }
+    // localStorage
+    notifyAll();
+    return true;
 }
 
 

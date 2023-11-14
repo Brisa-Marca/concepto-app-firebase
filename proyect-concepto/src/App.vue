@@ -58,12 +58,10 @@ export default {
                 </li>
                 <li id="explorar" >
                     <router-link to="/admin/pricing" class="navigation-anchor">Pricing</router-link>
-            
                 </li>
        
                 <li>
                     <router-link to="/admin/mensajes" class="navigation-anchor">Mensajes</router-link>
-           
                 </li>
         </ul>
     </template> 
@@ -99,11 +97,9 @@ export default {
     
     </template>
     <template v-else>
-        <!--REALIZAR LA PAGINA DE MI PERFIL Y RUTEARLO-->
         <li>  <router-link to="/perfil" class="btn-ingresar">Mi Perfil</router-link></li>
     <li>
         <form action="" @submit.prevent = "handleLogout">
-
             <button type="submit" class="p-user">Hola, <span class="primary-color-text ">{{user.email}}</span>(cerrar sesión)</button>
         </form>
     </li>

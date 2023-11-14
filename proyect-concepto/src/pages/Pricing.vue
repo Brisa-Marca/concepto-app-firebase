@@ -33,26 +33,23 @@ export default{
   <template  v-if="user.id === 'Q9DQIiTc2scDo10DKvmsUrsZY6a2'">
     <!--Contenido de pricing :las tablas de parte de admin-->
     <section class="pricing-content" >
-        <h2 class="h1 h1-bigger text-center mt-8 mb-56 title-pricing">Administrar opciones de contratación.</h2>
+        <h1 class="h1 h1-bigger text-center mt-8 mb-56 title-pricing">Administrar opciones de contratación.</h1>
     </section>
         <div class="content-table-admin">
           <table class="table table-hover">
                <thead >
                   <tr class="table-header">
-                      <!-- <th >ID</th> -->
+                     
                       <th >Nombre</th>
                       <th >Descripción</th>
                       <th >Precio</th>
                       <th >Acciones</th>
-                      <!-- <th scope="col">Caracteristicas</th> -->
+                      
             
                   </tr>
               </thead>
                <tbody v-for="plans in actual">
                        <tr>
-                           <!-- <td>
-                                <p>{{ plans.id }}</p> 
-                           </td> -->
                            <td>
                                <p>{{plans.nombre}} </p>
                            </td>
@@ -60,7 +57,7 @@ export default{
                                <p>{{plans.descripción}}</p>
                            </td>
                            <td>
-                               <p>$ {{plans.precio}}</p>
+                               <p>${{plans.precio}}</p>
                            </td>
 
 
@@ -70,14 +67,42 @@ export default{
                            </td>
                        </tr>
                </tbody>
-    </table>
+       </table>
+      
+      
         </div>
+         <!--Seccion de form para agregar un nuevo plan-->
+       <div class="form-plans">
+        <form action="#">
+            <div>
+                <label for="titulo">Titulo</label>
+                <input type="text" id="titulo">
+            </div>
+            <div>
+                <label for="Descripción">Descripción</label>
+                <input type="text" id="Descripción">
+            </div>
+            <div>
+                <label for="Precio">Precio</label>
+                <input type="number" id="Precio">
+            </div>
+            <div>
+                <label for="caracteristicas">Caracteristicas</label>
+                <input type="text" id="caracteristicas">
+                <input type="text" id="caracteristicas">
+                <input type="text" id="caracteristicas">
+            </div>
+            <button>Cargar</button>
+        </form>
+
+       </div>
+       
       
    </template>
   <template v-else>
     <section class="pricing-content">
    <p class="subtitle subtitle-center-lines text-center">Pricing</p>
-   <h2 class="h1 h1-bigger text-center mt-8 mb-56 title-pricing">Comenza a potenciar tu carrera profesional con concepto</h2>
+   <h1 class="h1 h1-bigger text-center mt-8 mb-56 title-pricing">Comenza a potenciar tu carrera profesional con concepto</h1>
    <p class="paragraph mb-8 p-pricing">
        Con nuestros planes premium, accedés a nuestro catálogo entero de +435 tutoriales. ¡Elegí el que más se adapta a tus necesidades!
    </p>
