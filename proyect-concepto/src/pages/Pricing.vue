@@ -72,27 +72,28 @@ export default{
       
         </div>
          <!--Seccion de form para agregar un nuevo plan-->
-       <div class="form-plans">
+       <div class="checkout-form form-login">
+        <h1>Crear un nuevo plan</h1>
         <form action="#">
-            <div>
+            <div class="form-input">
                 <label for="titulo">Titulo</label>
-                <input type="text" id="titulo">
+                <input type="text" id="titulo" required>
             </div>
-            <div>
+            <div class="form-input">
                 <label for="Descripción">Descripción</label>
-                <input type="text" id="Descripción">
+                <input type="text" id="Descripción" required>
             </div>
-            <div>
+            <div class="form-input">
                 <label for="Precio">Precio</label>
-                <input type="number" id="Precio">
+                <input type="number" id="Precio" required>
             </div>
-            <div>
+            <div class="form-input">
                 <label for="caracteristicas">Caracteristicas</label>
-                <input type="text" id="caracteristicas">
-                <input type="text" id="caracteristicas">
-                <input type="text" id="caracteristicas">
+                <input type="text" id="caracteristicas" required>
+                <input type="text" id="caracteristicas" required>
+                <input type="text" id="caracteristicas" required>
             </div>
-            <button>Cargar</button>
+            <button class="main-cta login">Cargar</button>
         </form>
 
        </div>

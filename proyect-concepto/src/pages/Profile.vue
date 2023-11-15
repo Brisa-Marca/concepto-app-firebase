@@ -56,18 +56,13 @@ export default{
 }
 </script>
 <template>
-  <!--Realizar el modificar los datos(en especial el eliminar y editar datos).-->
     <section class="content-login">
           <template v-if="!editing">
             <div >
-            <img src="../../assets/svg/favicon.svg" alt="" class="img-login">
               <h1 class="hero-section-title mb-24">Mi Perfil</h1>
-
-              <dl>
-                <dt>{{ user.displayName || "No especificado" }}</dt>
-                
-              </dl>
-
+              <!--Ponerle estilos al nombre de usuario-->
+              <img src="../../assets/png/icon-user.png" alt="icono de perfil de un usuario"  class="img-login">
+                <p>{{ user.displayName || "No especificado" }}</p>
               <div>
                 <div><button @click="handleShowEdit" class="btn-ingresar btn-perfil">Modificar mis datos</button></div>
                 <router-link to="/admin/mensajes"><div><button class="btn-ingresar btn-perfil">Ver mis mensajes</button></div></router-link>
