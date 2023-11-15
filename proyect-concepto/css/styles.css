@@ -520,7 +520,7 @@ body {
 /*Contenedor de los planes*/
 .planes-content{
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 20px;
     width: 90%;
     margin: auto;
@@ -576,7 +576,7 @@ body {
     margin: auto;
     display: flex;
     justify-content: space-around;
-    align-items: center;
+    align-items: flex-start;
     gap: 10px;
     padding: 0px 5px 50px 5px;
 }
@@ -2190,7 +2190,6 @@ textarea{
     border-radius: 8px 8px 0 0;
 } */
 .content-table-admin{
-    margin: auto;
     display: flex;
     justify-content: space-around;
     align-items: center;
