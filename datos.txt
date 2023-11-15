@@ -1,3 +1,25 @@
 Usuario administrador
 mail:admin@gmail.com
 contraseña:adminbrisa
+
+Datos de los alumnos:
+
+Apellido y Nombre:Almirón Ana Laura
+Materia:Clientes Web Mobile
+Carrera:Diseño y Desarrollo Web
+Año:2023
+Turno:Tarde
+Comisión:DWT4AH
+Cuatrimestre:Cuarto Cuatrimestre
+Docente:Santiago Gallino
+Caracter de Entrega:Primer Parcial
+
+Apellido y Nombre:Marca Jaimes Brisa Belén
+Materia:Clientes Web Mobile
+Carrera:Diseño y Desarrollo Web
+Año:2023
+Turno:Tarde
+Comisión:DWT4AH
+Cuatrimestre:Cuarto Cuatrimestre
+Docente:Santiago Gallino
+Caracter de Entrega:Primer Parcial

@@ -73,12 +73,12 @@ export default{
       
         </div>
          <!--Seccion de form para agregar un nuevo plan-->
-       <div class="checkout-form form-login">
+       <div class="checkout-form form-login" >
         <h1>Crear un nuevo plan</h1>
-        <form action="#">
+        <form action="#" id="content-form-plans">
             <div class="form-input">
-                <label for="titulo">Titulo</label>
-                <input type="text" id="titulo" required>
+                <label for="Titulo">Titulo</label>
+                <input type="text" id="Titulo" required>
             </div>
             <div class="form-input">
                 <label for="Descripción">Descripción</label>
@@ -91,10 +91,10 @@ export default{
             <div class="form-input">
                 <label for="caracteristicas">Caracteristicas</label>
                 <input type="text" id="caracteristicas" required>
-                <input type="text" id="caracteristicas" required>
-                <input type="text" id="caracteristicas" required>
+                <input type="text" id="caracteristicas" >
+                <input type="text" id="caracteristicas" >
             </div>
-            <button class="main-cta login">Cargar</button>
+            <button class="main-cta login" type="submit">Cargar</button>
         </form>
 
        </div>
