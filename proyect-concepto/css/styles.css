@@ -570,6 +570,16 @@ body {
     margin: 18px 0px;
     cursor: pointer;
 }
+/*Contenedor de los planes por parte del admin*/
+.content-form-plans{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+    padding: 0px 5px 50px 5px;
+}
 
 
 @media only screen and (max-width: 992px) {
@@ -2184,7 +2194,7 @@ textarea{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 40px;
+    padding: 10px;
     width: 80%;
 }
 
@@ -2204,10 +2214,10 @@ tbody>tr>td{
     border-right: 1px solid black;
     border-bottom: 1px solid black;
 }
-.btn-content{
+/* .btn-content{
     display: block;
     
-}
+} */
 .btn-content >button{
     padding: 5px 20px;
     margin-bottom: 10px;

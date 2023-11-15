@@ -35,7 +35,8 @@ export default{
     <section class="pricing-content" >
         <h1 class="h1 h1-bigger text-center mt-8 mb-56 title-pricing">Administrar opciones de contratación.</h1>
     </section>
-        <div class="content-table-admin">
+        <div class="content-form-plans">
+            <div class="content-table-admin">
           <table class="table table-hover">
                <thead >
                   <tr class="table-header">
@@ -97,6 +98,7 @@ export default{
         </form>
 
        </div>
+        </div>
        
       
    </template>
