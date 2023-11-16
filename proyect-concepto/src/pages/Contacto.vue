@@ -7,7 +7,7 @@ import { formatDate } from '../helpers/date.js';
 
 export default{
     name:'PrivateChat',
-
+    
     data() {
         return {
             // loadingMessages: true,

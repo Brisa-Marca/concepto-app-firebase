@@ -1,17 +1,41 @@
 <script>
-import {planesActualizados} from '../services/plans.js';
+import {plansSave ,planesActualizados} from '../services/plans.js';
 import {subscribeToAuth } from '../services/auth.js'
 export default{
     name: 'Pricing',
     data(){
         return{
             actual :[],
+            newPlans:{
+                nombre: '',
+                descripción:'',
+                precio: '',
+                caracteristicas:[""],
+
+            },
             user:{
                 id: null,
-                email:null,
-
+                email:null,   
             }
 
+        }
+    },
+    methods:{
+        sendPlans(){
+           plansSave({
+            nombre: this.newPlans.nombre,
+            descripción:this.newPlans.descripción,
+            precio:this.newPlans.precio,
+            caracteristicas:this.newPlans.caracteristicas,
+
+           })
+           .then(()=>{
+            this.newPlans.nombre = "",
+            this.newPlans.descripción = "",
+            this.newPlans.precio = "",
+            this.newPlans.caracteristicas = []
+
+           })
         }
     },
     mounted() {
@@ -75,24 +99,24 @@ export default{
          <!--Seccion de form para agregar un nuevo plan-->
        <div class="checkout-form form-login" >
         <h1>Crear un nuevo plan</h1>
-        <form action="#" id="content-form-plans">
+        <form action="#" id="content-form-plans"  @submit.prevent="sendPlans">
             <div class="form-input">
                 <label for="Titulo">Titulo</label>
-                <input type="text" id="Titulo" required>
+                <input type="text" id="Titulo" required v-model="newPlans.nombre">
             </div>
             <div class="form-input">
                 <label for="Descripción">Descripción</label>
-                <input type="text" id="Descripción" required>
+                <input type="text" id="Descripción" required v-model="newPlans.descripción">
             </div>
             <div class="form-input">
                 <label for="Precio">Precio</label>
-                <input type="number" id="Precio" required>
+                <input type="number" id="Precio" required v-model="newPlans.precio">
             </div>
             <div class="form-input">
                 <label for="caracteristicas">Caracteristicas</label>
-                <input type="text" id="caracteristicas" required>
-                <input type="text" id="caracteristicas" >
-                <input type="text" id="caracteristicas" >
+                <input type="text" id="caracteristicas" required v-model="newPlans.caracteristicas[0]">
+                <input type="text" id="caracteristicas" v-model="newPlans.caracteristicas[1]">
+                <input type="text" id="caracteristicas" v-model="newPlans.caracteristicas[2]">
             </div>
             <button class="main-cta login" type="submit">Cargar</button>
         </form>
