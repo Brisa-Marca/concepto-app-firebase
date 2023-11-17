@@ -65,7 +65,13 @@ export default{
                 <p> {{ user.displayName || "No especificado" }} </p>
               <div>
                 <div><button @click="handleShowEdit" class="btn-ingresar btn-perfil">Modificar mis datos</button></div>
-                <router-link to="/admin/mensajes"><div><button class="btn-ingresar btn-perfil">Ver mis mensajes</button></div></router-link>
+                <template v-if="user.id == 'Q9DQIiTc2scDo10DKvmsUrsZY6a2'">
+                  <router-link to="/admin/mensajes"><div><button class="btn-ingresar btn-perfil">Ver mis mensajes</button></div></router-link>
+                </template>
+                <template v-else>
+                  <router-link to="/contacto"><div><button class="btn-ingresar btn-perfil">Ver mis mensajes</button></div></router-link>
+                </template>
+                <!-- <router-link to="/admin/mensajes"><div><button class="btn-ingresar btn-perfil">Ver mis mensajes</button></div></router-link> -->
                 <div><button class="btn-cerrar btn-perfil" @click="handleLogout">Cerrar Sesión</button></div>
 
               </div>
