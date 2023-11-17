@@ -99,7 +99,7 @@ export default{
 
                            <td class="btn-content">
                                <button class="btn-ingresar" @click="editPlans" >Editar</button>
-                               <button class="btn-eliminar" @click="deletePlan(plans.id)" >Eliminar</button>
+                               <button class="btn-eliminar" @click="$event => deletePlan(plans.id)" >Eliminar</button>
                            </td>
                        </tr>
                </tbody>
