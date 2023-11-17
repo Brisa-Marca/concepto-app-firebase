@@ -40,7 +40,7 @@ export function plansDelete(data){
     }));
 }
 
-//Editar un plan en especifico updateDoc()
+//Editar un plan en especificoupdateDoc()
 export function plansUpdate(data){
     return updateDoc(doc(refPlans,{
         ...data,

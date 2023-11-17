@@ -37,12 +37,13 @@ export default{
 
            })
         },
-        deletePlan(){
+        deletePlan(id){
             //console.log(plansDelete)
-            // plansDelete({
-               
-            //  })
-            console.log("eliminado")
+            plansDelete(id).delete()
+            .then(
+                console.log("eliminado")
+            )
+           
 
         }
     },
