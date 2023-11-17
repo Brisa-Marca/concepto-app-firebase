@@ -52,11 +52,11 @@ export async function editPlans({titulo,descripción,precio,caracteristicas}){
      
 
     //actualizamos los datos del usuario
-    plansData = {
-      titulo,
-      descripción,
-      precio,
-      caracteristicas
+    actual = {
+        titulo,
+        descripción,
+        precio,
+        caracteristicas
     }
     // localStorage
     notifyAll();
