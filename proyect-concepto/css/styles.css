@@ -474,7 +474,7 @@ body {
     letter-spacing: -1px;
 }
 
-.active>a {
+/* .active>a {
     color: var(--color-gray-1000);
     position: relative;
 }
@@ -484,7 +484,7 @@ body {
     position: absolute;
     left: 48%;
     top: 70%;
-}
+} */
 
 .mobile-nav-toggle {
     display: none;

@@ -6,9 +6,9 @@ export default{
     data(){
       return{
         user:{
-      id:null,
-      email:null,
-      displayName:null,
+            id:null,
+            email:null,
+            displayName:null,
     },
      authUnsubcribe:() => {},
      editing: false,
