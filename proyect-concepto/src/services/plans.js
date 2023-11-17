@@ -34,11 +34,13 @@ export function planesActualizados(callback){
 
 
 //Eliminar un plan en especifico deleteDoc()
-export function plansDelete(data){
+export function plansDelete(id,data){
     return deleteDoc(doc(refPlans,{
         ...data,
+        id,
     }));
 }
+
 
 //Editar un plan en especificoupdateDoc()
 export function plansUpdate(data){

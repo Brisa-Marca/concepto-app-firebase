@@ -39,10 +39,10 @@ export default{
         },
         deletePlan(id){
             //console.log(plansDelete)
-            plansDelete(id).delete()
+            plansDelete(id).remove()
             .then(
-                console.log("eliminado")
-            )
+               console.log("plan eliminado")
+             )
            
 
         }
