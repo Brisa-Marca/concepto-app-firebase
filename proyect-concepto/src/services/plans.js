@@ -40,8 +40,26 @@ export function plansDelete(id){
 
 
 //Editar un plan en especificoupdateDoc()
-export function plansUpdate(id,data){
-   // return updateDoc((refPlans,id));
-}
+// export function plansUpdate(id,data){
+//    // return updateDoc((refPlans,id));
+// }
+export async function editPlans({titulo,descripción,precio,caracteristicas}){
+    //Primero actualizamos la autentificación
+     await updateDoc(refPlans,{
+        titulo,
+        descripción,precio,caracteristicas
+     })
+     
 
+    //actualizamos los datos del usuario
+    plansData = {
+      titulo,
+      descripción,
+      precio,
+      caracteristicas
+    }
+    // localStorage
+    notifyAll();
+    return true;
+}
 

@@ -45,10 +45,15 @@ export default{
              )
            
 
+        },
+        editPlans(){
+            // editing = true
+
         }
     },
     mounted() {
         planesActualizados(actual =>{
+            // editing = false,
             this.actual = actual;
         });
         subscribeToAuth(newUserData =>{
@@ -93,7 +98,7 @@ export default{
 
 
                            <td class="btn-content">
-                               <button class="btn-ingresar" >Editar</button>
+                               <button class="btn-ingresar" @click="editPlans" >Editar</button>
                                <button class="btn-eliminar" @click="deletePlan(plans.id)" >Eliminar</button>
                            </td>
                        </tr>
