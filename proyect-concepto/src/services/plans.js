@@ -1,12 +1,12 @@
 //Realizar los planes con onsnapshot para realizar despues la carpeta src
-import {addDoc, collection, doc, onSnapshot } from "firebase/firestore";
+import {addDoc, collection, deleteDoc, doc, onSnapshot, updateDoc } from "firebase/firestore";
 import { db } from "./firebase.js";
 
 const refPlans = collection(db, "planes");
 
 export function plansSave(data){
     return addDoc(refPlans,{
-        ...data
+        ...data,
     });
 }
 
@@ -15,6 +15,7 @@ export function planesActualizados(callback){
      //console.log(snapshot.docs)
         const actual = snapshot.docs.map(doc =>{
             return{
+                id:doc.id,
                 nombre: doc.data().nombre,
                 descripción :doc.data().descripción,
                 precio :doc.data().precio,
@@ -30,4 +31,20 @@ export function planesActualizados(callback){
       
       });
 }
+
+
+//Eliminar un plan en especifico deleteDoc()
+export function plansDelete(data){
+    return deleteDoc(doc(refPlans,{
+        ...data,
+    }));
+}
+
+//Editar un plan en especifico updateDoc()
+export function plansUpdate(data){
+    return updateDoc(doc(refPlans,{
+        ...data,
+    }));
+}
+
 

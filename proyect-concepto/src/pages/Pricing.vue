@@ -1,5 +1,5 @@
 <script>
-import {plansSave ,planesActualizados} from '../services/plans.js';
+import {plansSave ,planesActualizados , plansDelete} from '../services/plans.js';
 import {subscribeToAuth } from '../services/auth.js'
 export default{
     name: 'Pricing',
@@ -10,7 +10,7 @@ export default{
                 nombre: '',
                 descripción:'',
                 precio: '',
-                caracteristicas:[""],
+                caracteristicas:[],
 
             },
             user:{
@@ -36,6 +36,14 @@ export default{
             this.newPlans.caracteristicas = []
 
            })
+        },
+        deletePlan(){
+            //console.log(plansDelete)
+            // plansDelete({
+               
+            //  })
+            console.log("eliminado")
+
         }
     },
     mounted() {
@@ -64,16 +72,13 @@ export default{
           <table class="table table-hover">
                <thead >
                   <tr class="table-header">
-                     
                       <th >Nombre</th>
                       <th >Descripción</th>
                       <th >Precio</th>
                       <th >Acciones</th>
-                      
-            
                   </tr>
               </thead>
-               <tbody v-for="plans in actual">
+               <tbody v-for="plans in actual" :key="plans.id">
                        <tr>
                            <td>
                                <p>{{plans.nombre}} </p>
@@ -87,8 +92,8 @@ export default{
 
 
                            <td class="btn-content">
-                               <button class="btn-ingresar">Editar</button>
-                               <button class="btn-eliminar">Eliminar</button>
+                               <button class="btn-ingresar" >Editar</button>
+                               <button class="btn-eliminar" @click="deletePlan(plans.id)" >Eliminar</button>
                            </td>
                        </tr>
                </tbody>

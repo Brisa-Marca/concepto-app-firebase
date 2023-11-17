@@ -6,13 +6,7 @@ import { db } from "./firebase";
 // Acá vamos a guardar los documentos de los chats privados.
 const chatDocsCache = {};
 
-/**
- * 
- * @param {{user1: string, idUserAdmin: 'string'}} users
- * @param {() => {}} callback 
- * @returns {Promise<import("firebase/auth").Unsubscribe>}
- */
-const user2 ='Q9DQIiTc2scDo10DKvmsUrsZY6a2';
+//const user2 ='Q9DQIiTc2scDo10DKvmsUrsZY6a2';
 //console.log(idAdmin); Intentar cambiar el idUserCon user2
 export async function subscribeToPrivateChat({user1, user2}, callback) {
     //console.log(user1)

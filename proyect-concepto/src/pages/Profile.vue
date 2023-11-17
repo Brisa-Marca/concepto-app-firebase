@@ -62,7 +62,7 @@ export default{
               <h1 class="hero-section-title mb-24">Mi Perfil</h1>
               <!--Ponerle estilos al nombre de usuario-->
               <img src="../../assets/png/icon-user.png" alt="icono de perfil de un usuario"  class="img-login">
-                <p>{{ user.displayName || "No especificado" }}</p>
+                <p> {{ user.displayName || "No especificado" }} </p>
               <div>
                 <div><button @click="handleShowEdit" class="btn-ingresar btn-perfil">Modificar mis datos</button></div>
                 <router-link to="/admin/mensajes"><div><button class="btn-ingresar btn-perfil">Ver mis mensajes</button></div></router-link>
