@@ -1,57 +1,54 @@
 //Realizar los planes con onsnapshot para realizar despues la carpeta src
-import {addDoc, collection, deleteDoc, doc, onSnapshot, updateDoc } from "firebase/firestore";
-import { db } from "./firebase.js";
+import {
+    addDoc,
+    collection,
+    deleteDoc,
+    doc,
+    onSnapshot,
+    updateDoc
+} from "firebase/firestore";
+import {
+    db
+} from "./firebase.js";
 
 const refPlans = collection(db, "planes");
 
-export function plansSave(data){
-    return addDoc(refPlans,{
+export function plansSave(data) {
+    return addDoc(refPlans, {
         ...data,
     });
 }
 
-export function planesActualizados(callback){
-    onSnapshot(refPlans,snapshot => {
-     //console.log(snapshot.docs)
-        const actual = snapshot.docs.map(doc =>{
-            return{
-                id:doc.id,
+export function planesActualizados(callback) {
+    onSnapshot(refPlans, snapshot => {
+        //console.log(snapshot.docs)
+        const actual = snapshot.docs.map(doc => {
+            return {
+                id: doc.id,
                 nombre: doc.data().nombre,
-                descripción :doc.data().descripción,
-                precio :doc.data().precio,
-                caracteristicas:[doc.data().caracteristicas[0],
-                                 doc.data().caracteristicas[1], 
-                                 doc.data().caracteristicas[2],
-                                ],
+                descripción: doc.data().descripción,
+                precio: doc.data().precio,
+                caracteristicas: [doc.data().caracteristicas[0],
+                    doc.data().caracteristicas[1],
+                    doc.data().caracteristicas[2],
+                ],
 
             }
         });
         console.log(actual)
         callback(actual)
-      
-      });
+
+    });
 }
-
-
-//Eliminar un plan en especifico deleteDoc()
-export function plansDelete(id){
-    return deleteDoc(doc(refPlans, id));
-}
-
-
-//Editar un plan en especificoupdateDoc()
-// export function plansUpdate(id,data){
-//    // return updateDoc((refPlans,id));
-// }
-export async function editPlans({titulo,descripción,precio,caracteristicas}){
-    //Primero actualizamos la autentificación
-     await updateDoc(refPlans,{
+export async function editingPlans({titulo, descripción, precio, caracteristicas}) {
+    await updateDoc(refPlans, {
         titulo,
-        descripción,precio,caracteristicas
-     })
-     
+        descripción,
+        precio,
+        caracteristicas,
+    })
 
-    //actualizamos los datos del usuario
+    //actualizamos los datos del plan
     actual = {
         titulo,
         descripción,
@@ -62,4 +59,11 @@ export async function editPlans({titulo,descripción,precio,caracteristicas}){
     notifyAll();
     return true;
 }
+
+
+//Eliminar un plan en especifico deleteDoc()
+export function plansDelete(id) {
+    return deleteDoc(doc(refPlans, id));
+}
+
 
