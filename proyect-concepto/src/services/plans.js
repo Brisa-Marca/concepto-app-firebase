@@ -40,8 +40,8 @@ export function planesActualizados(callback) {
 
     });
 }
-export async function editingPlans({titulo, descripción, precio, caracteristicas}) {
-    await updateDoc(refPlans, {
+export async function editingPlans(id, {titulo, descripción, precio, caracteristicas}) {
+    await updateDoc( doc(db, `planes/${id}`), {
         titulo,
         descripción,
         precio,

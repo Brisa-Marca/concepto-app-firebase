@@ -64,12 +64,12 @@ export default {
             //     caracteristicas:this.actual.caracteristicas
             // }
         },
-        hadleHideEditPlan() {
-            this.editingPlans = false;
-        },
+        // hadleHideEditPlan() {
+        //     this.editingPlans = false;
+        // },
          async handleEditPlan() {
             this.processingEditPlan = true;
-             await editingPlans({ ...this.editDataPlans })
+            await editingPlans({ ...this.editDataPlans })
             this.processingEditPlan = false;
         }
     },
