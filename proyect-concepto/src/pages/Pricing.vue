@@ -87,7 +87,7 @@ export default {
                 ...this.editData,
             });
 
-            // this.processingEdit = false;
+            this.processingEdit = false;
 
         }
 
