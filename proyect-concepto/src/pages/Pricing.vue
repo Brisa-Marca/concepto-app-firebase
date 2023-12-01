@@ -1,11 +1,19 @@
 <script>
-import { plansSave, planesActualizados, plansDelete, editingPlans } from '../services/plans.js';
+import { plansSave, planesActualizados, plansDelete, editPlans } from '../services/plans.js';
 import { subscribeToAuth } from '../services/auth.js'
 export default {
     name: 'Pricing',
     data() {
         return {
             actual: [],
+            plans: {
+                id: null,
+                nombre: null,
+                descripción: null,
+                precio: null,
+                caracteristicas: [],
+
+            },
             newPlans: {
                 nombre: '',
                 descripción: '',
@@ -19,18 +27,33 @@ export default {
             }
             ,
             editingPlans: false,
-            editDataPlans: {
+            editData: {
                 nombre: '',
                 descripción: '',
                 precio: '',
-                caracteristicas:[],
-
+                caracteristicas: [],
             },
-            processingEditPlan: false
-
+            processingEdit: false,
         }
     },
     methods: {
+        handleShowEdit() {
+            this.editingPlans = true;
+
+        },
+         handleHideEdit() {
+            this.editingPlans = false;
+
+        },
+         async handleEdit(){
+            this.processingEdit = true;
+            await editPlans({
+                ...this.editData,
+            });
+
+            this.processingEdit = false;
+
+        },
         sendPlans() {
             plansSave({
                 nombre: this.newPlans.nombre,
@@ -55,34 +78,21 @@ export default {
 
 
         },
-        editPlans() {
-            this.editingPlans = true;
-            // this.editDataPlans = {
-            //     nombre: this.actual.nombre,
-            //     descripción:this.actual.descripción,
-            //     precio:this.actual.precio,
-            //     caracteristicas:this.actual.caracteristicas
-            // }
-        },
-        // hadleHideEditPlan() {
-        //     this.editingPlans = false;
-        // },
-         async handleEditPlan() {
-            this.processingEditPlan = true;
-            await editingPlans({ ...this.editDataPlans })
-            this.processingEditPlan = false;
-        }
+
     },
     mounted() {
         planesActualizados(actual => {
             this.actual = actual;
         });
-        subscribeToAuth(newUserData => {
+        this.authsubscribe = subscribeToAuth(newUserData => {
             this.user = {
                 ...newUserData,
             }
         });
 
+    },
+    unmounted() {
+        this.authsubscribe();
     }
 }
 </script>
@@ -119,7 +129,7 @@ export default {
 
 
                                 <td class="btn-content">
-                                    <button class="btn-ingresar" @click="$event =>editPlans(plans.id)">Editar</button>
+                                    <button class="btn-ingresar" @click="handleShowEdit">Editar</button>
                                     <button class="btn-eliminar" @click="$event => deletePlan(plans.id)">Eliminar</button>
                                 </td>
                             </tr>
@@ -158,33 +168,29 @@ export default {
         <!--Formulario que se muestra cuando editas un plan en particular-->
         <template v-else>
             <h1 class="h1 h1-bigger text-center mt-8 mb-56 title-pricing">Editar Plan</h1>
-            <form action="#" id="content-form-plans"  @submit.prevent="handleEditPlan">
+            <form action="#" id="content-form-plans" @submit.prevent="handleEdit" :key="plans.id">
                 <div class="form-input">
-                    <label for="Titulo">Titulo</label>
-                    <input type="text" id="Titulo"  v-model="editDataPlans.nombre" :disabled="processingEditPlan">
+                    <label for="nombre">Nombre del Plan</label>
+                    <input type="text" id="nombre" :disabled="processingEdit" v-model="editData.nombre" >
                 </div>
                 <div class="form-input">
                     <label for="Descripción">Descripción</label>
-                    <input type="text" id="Descripción"  v-model="editDataPlans.descripción"
-                        :disabled="processingEditPlan">
+                    <input type="text" id="Descripción" :disabled="processingEdit"  v-model="editData.descripción" >
                 </div>
                 <div class="form-input">
                     <label for="Precio">Precio</label>
-                    <input type="number" id="Precio"  v-model="editDataPlans.precio" :disabled="processingEditPlan">
+                    <input type="number" id="Precio"  :disabled="processingEdit" v-model="editData.precio" >
                 </div>
                 <div class="form-input">
                     <label for="caracteristicas">Caracteristicas</label>
-                    <input type="text" id="caracteristicas" v-model="editDataPlans.caracteristicas[0]"
-                        :disabled="processingEditPlan">
-                    <input type="text" id="caracteristicas" v-model="editDataPlans.caracteristicas[1]"
-                        :disabled="processingEditPlan">
-                    <input type="text" id="caracteristicas" v-model="editDataPlans.caracteristicas[2]"
-                        :disabled="processingEditPlan">
+                    <input type="text" id="caracteristicas" :disabled="processingEdit" v-model="editData.caracteristicas[0]" >
+                    <input type="text" id="caracteristicas" :disabled="processingEdit" v-model="editData.caracteristicas[1]" >
+                    <input type="text" id="caracteristicas" :disabled="processingEdit" v-model="editData.caracteristicas[2]" >
                 </div>
-                <button class="main-cta login"  @loading="processingEditPlan" >Actualizar datos</button>
+                <button class="main-cta login" @loading="processingEdit">Actualizar datos</button>
             </form>
             <div>
-                <button @click="hadleHideEditPlan" class="btn-eliminar">Cancelar edición</button>
+                <button class="btn-eliminar" @click="handleHideEdit">Cancelar edición</button>
             </div>
 
         </template>
@@ -223,6 +229,6 @@ export default {
                     <button class="btn-elegir-plan">Elegir plan</button>
                 </div>
             </div>
-    </section>
-</template>
+        </section>
+    </template>
 </template>

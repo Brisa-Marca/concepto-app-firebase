@@ -40,24 +40,26 @@ export function planesActualizados(callback) {
 
     });
 }
-export async function editingPlans(id, {titulo, descripción, precio, caracteristicas}) {
-    await updateDoc( doc(db, `planes/${id}`), {
-        titulo,
-        descripción,
-        precio,
-        caracteristicas,
-    })
-
-    //actualizamos los datos del plan
-    actual = {
-        titulo,
+export  async function editPlans(id, {nombre, descripción, precio, caracteristicas}){
+   return  updateDoc( doc(db, `planes/${id}`), {
+        nombre,
         descripción,
         precio,
         caracteristicas
-    }
+    })
+
+    //actualizamos los datos del plan
+
+   
+    // const updatedData = {
+    //     nombre,
+    //     descripción,
+    //     precio,
+    //     caracteristicas
+    // };
     // localStorage
-    notifyAll();
-    return true;
+    // notifyAll();
+    // return true;
 }
 
 
