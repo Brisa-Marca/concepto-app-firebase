@@ -8,7 +8,6 @@ export default {
     },
     methods:{
         handleLogin(user){
-           //console.log("[Login.vue handleLogin]El usuario es :" ,user);
            this.$emit('login',user);
 
         }
