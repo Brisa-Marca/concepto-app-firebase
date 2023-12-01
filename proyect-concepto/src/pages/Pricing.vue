@@ -167,9 +167,9 @@ export default {
                         </div>
                         <div class="form-input">
                             <label for="caracteristicas">Caracteristicas</label>
-                            <input type="text" id="caracteristicas" required v-model="newPlans.caracteristicas[0]">
-                            <input type="text" id="caracteristicas" v-model="newPlans.caracteristicas[1]">
-                            <input type="text" id="caracteristicas" v-model="newPlans.caracteristicas[2]">
+                            <input type="text" class="input-caracteristicas" id="caracteristicas" required v-model="newPlans.caracteristicas[0]">
+                            <input type="text" class="input-caracteristicas" id="caracteristicas" v-model="newPlans.caracteristicas[1]">
+                            <input type="text" class="input-caracteristicas" id="caracteristicas" v-model="newPlans.caracteristicas[2]">
                         </div>
                         <button class="main-cta login" type="submit">Cargar</button>
                     </form>
@@ -179,7 +179,7 @@ export default {
         </template>
         <!--Formulario que se muestra cuando editas un plan en particular-->
         <template v-else>
-            <h1 class="h1 h1-bigger text-center mt-8 mb-56 title-pricing">Editar Plan</h1>
+            <h1 class="h1 h1-bigger text-center mt-8 mb-56 title-pricing">Editar Plan : {{ editData.nombre }}</h1>
             <form action="#" id="content-form-plans" @submit.prevent="handleEdit" :key="plans.id">
                 <div class="form-input">
                     <label for="nombre">Nombre del Plan</label>
@@ -195,11 +195,11 @@ export default {
                 </div>
                 <div class="form-input">
                     <label for="caracteristicas">Caracteristicas</label>
-                    <input type="text" id="caracteristicas" :disabled="processingEdit"
+                    <input type="text" class="input-caracteristicas" id="caracteristicas" :disabled="processingEdit"
                         v-model="editData.caracteristicas[0]">
-                    <input type="text" id="caracteristicas" :disabled="processingEdit"
+                    <input type="text" class="input-caracteristicas" id="caracteristicas" :disabled="processingEdit"
                         v-model="editData.caracteristicas[1]">
-                    <input type="text" id="caracteristicas" :disabled="processingEdit"
+                    <input type="text" class="input-caracteristicas" id="caracteristicas" :disabled="processingEdit"
                         v-model="editData.caracteristicas[2]">
                 </div>
                 <button class="main-cta login" @loading="processingEdit">Actualizar datos</button>
