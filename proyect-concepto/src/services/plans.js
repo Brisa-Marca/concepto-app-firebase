@@ -48,15 +48,6 @@ export  async function editPlans(id, {nombre, descripción, precio, caracteristi
         caracteristicas
     })
 
-    //actualizamos los datos del plan
-
-   
-    // const updatedData = {
-    //     nombre,
-    //     descripción,
-    //     precio,
-    //     caracteristicas
-    // };
     // localStorage
     // notifyAll();
     // return true;
