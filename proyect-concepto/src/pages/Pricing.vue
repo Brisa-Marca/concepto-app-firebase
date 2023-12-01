@@ -27,6 +27,7 @@ export default {
             }
             ,
             editingPlans: false,
+            editingId: '',
             editData: {
                 nombre: '',
                 descripción: '',
@@ -37,23 +38,6 @@ export default {
         }
     },
     methods: {
-        handleShowEdit() {
-            this.editingPlans = true;
-
-        },
-         handleHideEdit() {
-            this.editingPlans = false;
-
-        },
-         async handleEdit(){
-            this.processingEdit = true;
-            await editPlans({
-                ...this.editData,
-            });
-
-            this.processingEdit = false;
-
-        },
         sendPlans() {
             plansSave({
                 nombre: this.newPlans.nombre,
@@ -73,11 +57,39 @@ export default {
         deletePlan(id) {
             plansDelete(id)
                 .then(
-                    console.log("plan eliminado" + (id))
+                    console.log("plan eliminado")
                 )
 
 
         },
+        handleShowEdit(plan) {
+            this.editingId = plan.id;
+            this.editData = {
+                ...this.editData,
+                nombre: plan.nombre,
+                descripción: plan.descripción,
+                precio: plan.precio,
+                caracteristicas: plan.caracteristicas,
+            }
+            // Guardamos en los datos para editar el id, y limpiamos los otro datos con
+            // los iniciales del plan.
+            this.editingPlans = true;
+
+        },
+        handleHideEdit() {
+            this.editingId = null;
+            this.editingPlans = false;
+
+        },
+        async handleEdit() {
+            this.processingEdit = true;
+            await editPlans(this.editingId, {
+                ...this.editData,
+            });
+
+            // this.processingEdit = false;
+
+        }
 
     },
     mounted() {
@@ -129,7 +141,7 @@ export default {
 
 
                                 <td class="btn-content">
-                                    <button class="btn-ingresar" @click="handleShowEdit">Editar</button>
+                                    <button class="btn-ingresar" @click="() => handleShowEdit(plans)">Editar</button>
                                     <button class="btn-eliminar" @click="$event => deletePlan(plans.id)">Eliminar</button>
                                 </td>
                             </tr>
@@ -171,21 +183,24 @@ export default {
             <form action="#" id="content-form-plans" @submit.prevent="handleEdit" :key="plans.id">
                 <div class="form-input">
                     <label for="nombre">Nombre del Plan</label>
-                    <input type="text" id="nombre" :disabled="processingEdit" v-model="editData.nombre" >
+                    <input type="text" id="nombre" :disabled="processingEdit" v-model="editData.nombre">
                 </div>
                 <div class="form-input">
                     <label for="Descripción">Descripción</label>
-                    <input type="text" id="Descripción" :disabled="processingEdit"  v-model="editData.descripción" >
+                    <input type="text" id="Descripción" :disabled="processingEdit" v-model="editData.descripción">
                 </div>
                 <div class="form-input">
                     <label for="Precio">Precio</label>
-                    <input type="number" id="Precio"  :disabled="processingEdit" v-model="editData.precio" >
+                    <input type="number" id="Precio" :disabled="processingEdit" v-model="editData.precio">
                 </div>
                 <div class="form-input">
                     <label for="caracteristicas">Caracteristicas</label>
-                    <input type="text" id="caracteristicas" :disabled="processingEdit" v-model="editData.caracteristicas[0]" >
-                    <input type="text" id="caracteristicas" :disabled="processingEdit" v-model="editData.caracteristicas[1]" >
-                    <input type="text" id="caracteristicas" :disabled="processingEdit" v-model="editData.caracteristicas[2]" >
+                    <input type="text" id="caracteristicas" :disabled="processingEdit"
+                        v-model="editData.caracteristicas[0]">
+                    <input type="text" id="caracteristicas" :disabled="processingEdit"
+                        v-model="editData.caracteristicas[1]">
+                    <input type="text" id="caracteristicas" :disabled="processingEdit"
+                        v-model="editData.caracteristicas[2]">
                 </div>
                 <button class="main-cta login" @loading="processingEdit">Actualizar datos</button>
             </form>
@@ -230,5 +245,5 @@ export default {
                 </div>
             </div>
         </section>
-    </template>
+</template>
 </template>

@@ -1,4 +1,3 @@
-//Realizar los planes con onsnapshot para realizar despues la carpeta src
 import {
     addDoc,
     collection,
@@ -40,6 +39,7 @@ export function planesActualizados(callback) {
 
     });
 }
+
 export  async function editPlans(id, {nombre, descripción, precio, caracteristicas}){
    return  updateDoc( doc(db, `planes/${id}`), {
         nombre,

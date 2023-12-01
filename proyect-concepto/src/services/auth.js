@@ -30,7 +30,6 @@ onAuthStateChanged(auth,user =>{
             email:null,
             displayName:null,
         }
-        //localStorage.removeItem('userData')
 
     }
     //Actualizamos el local storage
