@@ -86,7 +86,6 @@ export default {
             await editPlans(this.editingId, {
                 ...this.editData,
             });
-
             this.processingEdit = false;
 
         }
@@ -180,7 +179,7 @@ export default {
         <!--Formulario que se muestra cuando editas un plan en particular-->
         <template v-else>
             <h1 class="h1 h1-bigger text-center mt-8 mb-56 title-pricing">Editar Plan : {{ editData.nombre }}</h1>
-            <form action="#" id="content-form-plans" @submit.prevent="handleEdit" :key="plans.id">
+            <form action="#" id="content-form-plans" @submit.prevent="handleEdit" >
                 <div class="form-input">
                     <label for="nombre">Nombre del Plan</label>
                     <input type="text" id="nombre" :disabled="processingEdit" v-model="editData.nombre">
