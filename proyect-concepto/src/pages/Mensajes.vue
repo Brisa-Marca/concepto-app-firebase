@@ -16,13 +16,13 @@ export default{
     <div class="content-login" >
         <h1 class="hero-section-title mb-24">Administrar mensajes de clientes</h1>
     </div>
-    <!--Realizar un v-for en dodne se pueda ver los mensajes de la colección-->
+    <!-- Realizar un v-for en dodne se pueda ver los mensajes de la colección -->
     <div class="content-users-admin" >
-        <div class="card-users">
+        <!-- <div class="card-users">
             <img src="../../assets/svg/users-icons.svg" alt="" width="80px" height="80px">
             <h3>brisa@gmail.com</h3>
             <button class="btn-users" > Ver mensajes</button>
-            <!-- <router-link :to="/admin/mensajes/id/chat" class="btn-users"></router-link> -->
+          
         </div>
         <div class="card-users">
             <img src="../../assets/svg/users-icons.svg" alt="" width="80px" height="80px">
@@ -33,7 +33,7 @@ export default{
             <img src="../../assets/svg/users-icons.svg" alt="" width="80px" height="80px">
             <h3>juan@gmail.com</h3>
             <button class="btn-users">Ver mensajes</button>
-        </div>
+        </div> -->
       
     </div>
      

@@ -37,13 +37,6 @@ const routes = [
     { path: '/iniciar-sesion', component: Login, },
     { path: '/registrar', component: Register, },
 
-    //   {path: '/contacto/:idUserAdmin', component:Contacto,
-    //   meta:{requiresAuth:true}},
-    // {path: '/usuario/:id', component:UserProfile,
-    // meta:{requiresAuth:true}},
-    // {path: '/usuario/:id/chat', component:PrivateChat,
-    // meta:{requiresAuth:true}},
-
 ];
 
 //Creamos el router

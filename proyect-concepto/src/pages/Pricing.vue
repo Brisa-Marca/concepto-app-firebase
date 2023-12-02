@@ -1,6 +1,7 @@
 <script>
 import { plansSave, planesActualizados, plansDelete, editPlans } from '../services/plans.js';
 import { subscribeToAuth } from '../services/auth.js'
+import BaseLoader from '../components/BaseLoader.vue'
 export default {
     name: 'Pricing',
     data() {
@@ -66,6 +67,7 @@ export default {
             this.editingId = plan.id;
             this.editData = {
                 ...this.editData,
+                //capturamos el contenido de la edicion de un plan en particular
                 nombre: plan.nombre,
                 descripción: plan.descripción,
                 precio: plan.precio,
@@ -179,7 +181,7 @@ export default {
         <!--Formulario que se muestra cuando editas un plan en particular-->
         <template v-else>
             <h1 class="h1 h1-bigger text-center mt-8 mb-56 title-pricing">Editar Plan : {{ editData.nombre }}</h1>
-            <form action="#" id="content-form-plans" @submit.prevent="handleEdit" >
+            <form action="#" class="form-edit-pricing" id="content-form-plans" @submit.prevent="handleEdit" >
                 <div class="form-input">
                     <label for="nombre">Nombre del Plan</label>
                     <input type="text" id="nombre" :disabled="processingEdit" v-model="editData.nombre">
@@ -203,8 +205,8 @@ export default {
                 </div>
                 <button class="main-cta login" @loading="processingEdit">Actualizar datos</button>
             </form>
-            <div>
-                <button class="btn-eliminar" @click="handleHideEdit">Cancelar edición</button>
+            <div class="content-btn-cancel-edit">
+                <button class=" btn-cancel-edit btn-eliminar " @click="handleHideEdit">Cancelar edición</button>
             </div>
 
         </template>

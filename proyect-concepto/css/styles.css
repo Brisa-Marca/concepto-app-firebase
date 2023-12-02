@@ -583,6 +583,16 @@ body {
 .input-caracteristicas{
     margin-bottom: 8px;
 }
+/* Formulario editar de pricing por parte del usuario administrador */
+.form-edit-pricing{
+    width: 50%;
+    margin: auto;
+    padding-top: 30px;
+}
+.content-btn-cancel-edit{
+    margin: 30px;
+    text-align: center;
+}
 
 
 @media only screen and (max-width: 992px) {
@@ -661,6 +671,14 @@ body {
     }
     .plans{
         width: 80%;
+    }
+    .admin-btn{
+        flex-direction: column;
+        margin: auto;
+        width: 40%;
+    }
+    .admin-btn > a{
+        margin: 20px;
     }
 
 }
@@ -2227,11 +2245,21 @@ tbody>tr>td{
 }
 .btn-eliminar{
     background-color: #CE5151;
-    padding: 10px 20px;
+    padding: 20px ;
     border-radius: 10px;
     color: white;
     border: 0;
-
+    margin: auto;
+}
+.btn-cancel-edit{
+    width: 52%;
+    padding: 16px;
+    border-radius: 0.875rem;
+    font-weight: var(--general-medium);
+    font-size: var(--font-20px);
+    color: var(--color-gray-100);
+    cursor: pointer;
+    
 }
 /*Seccion de usuarios que mandan un mensaje al admin*/
 .content-users-admin{
