@@ -1,8 +1,10 @@
 <script>
 import { register } from '../services/auth.js';
+import BaseButton from '../components/BaseButton.vue';
 
 export default {
     name: 'Register',
+    components:{BaseButton},
     data(){
         return{
             form:{
@@ -42,8 +44,8 @@ export default {
                     <label for="pass">Contraseña</label>
                     <input type="password"  id="pass" placeholder="**********" v-model="form.password" required>
                 </div>
-                <button type="submit"  class="main-cta login">Crear cuenta</button>
                 
+                <BaseButton >Crear cuenta</BaseButton>
             </form>
             <div class="registrate-content">
                <p>¿Ya tienes una cuenta?</p>

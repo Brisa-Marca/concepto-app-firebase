@@ -1,32 +1,32 @@
 <script>
 import { plansSave, planesActualizados, plansDelete, editPlans } from '../services/plans.js';
-import { subscribeToAuth } from '../services/auth.js'
-import BaseLoader from '../components/BaseLoader.vue'
+import { subscribeToAuth } from '../services/auth.js';
+import {formatDate} from '../helpers/date.vue';
+import BaseButton from '../components/BaseButton.vue';
+// import BaseLoader from '../components/BaseLoader.vue';
 export default {
     name: 'Pricing',
     data() {
         return {
             actual: [],
+            components: { BaseButton },
             plans: {
                 id: null,
                 nombre: null,
                 descripción: null,
                 precio: null,
                 caracteristicas: [],
-
             },
             newPlans: {
                 nombre: '',
                 descripción: '',
                 precio: '',
                 caracteristicas: [],
-
             },
             user: {
                 id: null,
                 email: null,
-            }
-            ,
+            },
             editingPlans: false,
             editingId: '',
             editData: {
@@ -36,7 +36,7 @@ export default {
                 caracteristicas: [],
             },
             processingEdit: false,
-        }
+        };
     },
     methods: {
         sendPlans() {
@@ -45,23 +45,21 @@ export default {
                 descripción: this.newPlans.descripción,
                 precio: this.newPlans.precio,
                 caracteristicas: this.newPlans.caracteristicas,
-
             })
                 .then(() => {
-                    this.newPlans.nombre = "",
-                        this.newPlans.descripción = "",
-                        this.newPlans.precio = "",
-                        this.newPlans.caracteristicas = []
+                this.newPlans.nombre = "",
+                    this.newPlans.descripción = "",
+                    this.newPlans.precio = "",
+                    this.newPlans.caracteristicas = [];
+            });
+        },
+        dateToString(date){
+            return formatDate(date);
 
-                })
         },
         deletePlan(id) {
             plansDelete(id)
-                .then(
-                    console.log("plan eliminado")
-                )
-
-
+                .then(console.log("plan eliminado"));
         },
         handleShowEdit(plan) {
             this.editingId = plan.id;
@@ -72,16 +70,14 @@ export default {
                 descripción: plan.descripción,
                 precio: plan.precio,
                 caracteristicas: plan.caracteristicas,
-            }
+            };
             // Guardamos en los datos para editar el id, y limpiamos los otro datos con
             // los iniciales del plan.
             this.editingPlans = true;
-
         },
         handleHideEdit() {
             this.editingId = null;
             this.editingPlans = false;
-
         },
         async handleEdit() {
             this.processingEdit = true;
@@ -89,9 +85,7 @@ export default {
                 ...this.editData,
             });
             this.processingEdit = false;
-
         }
-
     },
     mounted() {
         planesActualizados(actual => {
@@ -100,13 +94,13 @@ export default {
         this.authsubscribe = subscribeToAuth(newUserData => {
             this.user = {
                 ...newUserData,
-            }
+            };
         });
-
     },
     unmounted() {
         this.authsubscribe();
-    }
+    },
+    components: { BaseButton }
 }
 </script>
 
@@ -125,6 +119,7 @@ export default {
                                 <th>Nombre</th>
                                 <th>Descripción</th>
                                 <th>Precio</th>
+                                <th>Fecha de publicación</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
@@ -138,6 +133,9 @@ export default {
                                 </td>
                                 <td>
                                     <p>${{ plans.precio }}</p>
+                                </td>
+                                <td>
+                                    <p>{{ dateToString(plans.created_at)}}</p>
                                 </td>
 
 
@@ -172,7 +170,7 @@ export default {
                             <input type="text" class="input-caracteristicas" id="caracteristicas" v-model="newPlans.caracteristicas[1]">
                             <input type="text" class="input-caracteristicas" id="caracteristicas" v-model="newPlans.caracteristicas[2]">
                         </div>
-                        <button class="main-cta login" type="submit">Cargar</button>
+                        <BaseButton>Cargar</BaseButton>
                     </form>
 
                 </div>
@@ -203,6 +201,7 @@ export default {
                     <input type="text" class="input-caracteristicas" id="caracteristicas" :disabled="processingEdit"
                         v-model="editData.caracteristicas[2]">
                 </div>
+                <!-- <BaseButton>Actualizar datos</BaseButton> -->
                 <button class="main-cta login" @loading="processingEdit">Actualizar datos</button>
             </form>
             <div class="content-btn-cancel-edit">

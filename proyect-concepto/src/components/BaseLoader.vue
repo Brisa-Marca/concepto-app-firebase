@@ -6,8 +6,8 @@ export default {
 
 
 <template>
-    <div class="loader">
+    <!-- <div class="loader">
         <div>Cargando...</div>
-    </div>
+    </div> -->
 
 </template>

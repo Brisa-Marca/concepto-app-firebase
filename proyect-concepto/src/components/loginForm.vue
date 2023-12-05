@@ -1,8 +1,9 @@
 <script>
 import { login} from "../services/auth.js";
+import BaseButton from "./BaseButton.vue";
  export default{
     name: 'loginForm',
-    components:{},
+    components:{BaseButton},
     data(){
         return{
             form:{
@@ -16,8 +17,6 @@ import { login} from "../services/auth.js";
             console.log("Ejecutando el login con estos datos:", this.form);
             login({
                 ...this.form,
-               //email: this.form.email,
-               //password:this.form.password,
             })
             .then( user =>{
              //Redireccion al perfil del usuario.
@@ -40,8 +39,7 @@ import { login} from "../services/auth.js";
                     <label for="pass">Contraseña</label>
                     <input type="password"  id="pass" placeholder="**********" v-model="form.password" required>
                 </div>
-                <button type="submit"  class="main-cta login">Iniciar sesión</button>
-                
+                <BaseButton>Iniciar sesión</BaseButton>
             </form>
             
         </div>

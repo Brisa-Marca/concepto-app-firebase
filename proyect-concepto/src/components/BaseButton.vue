@@ -1,3 +1,8 @@
 <script>
+export default{
+    name:'BaseButton',
+}
 </script>
-<template></template>
+<template>
+<button type="submit"  class="main-cta login"> <slot/> </button>
+</template> 

@@ -1,9 +1,12 @@
 import {
     addDoc,
     collection,
+    orderBy,
+    query,
     deleteDoc,
     doc,
     onSnapshot,
+    serverTimestamp,
     updateDoc
 } from "firebase/firestore";
 import {
@@ -15,11 +18,13 @@ const refPlans = collection(db, "planes");
 export function plansSave(data) {
     return addDoc(refPlans, {
         ...data,
+        created_at:serverTimestamp(),
     });
 }
 
 export function planesActualizados(callback) {
-    onSnapshot(refPlans, snapshot => {
+    const q = query(refPlans,orderBy('created_at'));
+    onSnapshot(q, snapshot => {
         //console.log(snapshot.docs)
         const actual = snapshot.docs.map(doc => {
             return {
@@ -31,6 +36,8 @@ export function planesActualizados(callback) {
                     doc.data().caracteristicas[1],
                     doc.data().caracteristicas[2],
                 ],
+                created_at:doc.data().
+                created_at.toDate(),
 
             }
         });
@@ -39,6 +46,7 @@ export function planesActualizados(callback) {
 
     });
 }
+
 
 export  async function editPlans(id, {nombre, descripción, precio, caracteristicas}){
    return  updateDoc( doc(db, `planes/${id}`), {
