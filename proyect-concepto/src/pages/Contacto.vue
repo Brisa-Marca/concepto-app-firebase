@@ -3,6 +3,7 @@
 import { sendPrivateChatMessage, subscribeToPrivateChat, } from '../services/private-chat';
 import { subscribeToAuth } from '../services/auth';
 import { formatDate } from '../helpers/date.js';
+// import BaseLoader from '../components/BaseLoader.vue';
 
 
 export default{
@@ -89,9 +90,9 @@ export default{
             </template>
             <!-- <template>
                   <div id="chat" class="chat" v-for="mensaje in messages">
-                      <h3 class="usuario-chat "> <router-link :to="`/usuario/${mensaje.userId}`">{{mensaje.user}}</router-link></h3>
+                      <h3 class="usuario-chat "> <router-link :to="`/usuario/${mensaje.idUserAdmin}`">{{mensaje.user}}</router-link></h3>
                                <p>{{mensaje.message}}</p>
-                               <div class="fecha-hora">{{ dateToString(mensaje.created_at)}}</div>
+                               <div class="fecha-hora">{{ dateToString(mensaje.created_at) || 'Enviando...'}}</div>
                 
                   </div>
            </template>

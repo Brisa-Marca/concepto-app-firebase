@@ -1,15 +1,14 @@
 <script>
 import { plansSave, planesActualizados, plansDelete, editPlans } from '../services/plans.js';
 import { subscribeToAuth } from '../services/auth.js';
-import {formatDate} from '../helpers/date.vue';
-import BaseButton from '../components/BaseButton.vue';
+import { formatDate } from '../helpers/date.js';
+import  BaseButton from '../components/BaseButton.vue';
 // import BaseLoader from '../components/BaseLoader.vue';
 export default {
     name: 'Pricing',
     data() {
         return {
             actual: [],
-            components: { BaseButton },
             plans: {
                 id: null,
                 nombre: null,
@@ -100,7 +99,7 @@ export default {
     unmounted() {
         this.authsubscribe();
     },
-    components: { BaseButton }
+    components: { BaseButton},
 }
 </script>
 
