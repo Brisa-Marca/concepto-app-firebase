@@ -2275,7 +2275,7 @@ tbody>tr>td{
     text-align: center;
     margin: 30px 0px;
 }
-.card-users >img{
+.card-users > .img{
     margin: auto;
     padding-bottom: 10px;
 }

@@ -1,6 +1,27 @@
 // import { doc,getDoc, setDoc, updateDoc  } from "firebase/firestore";
-// import { db } from "./firebase";
+import {
+    collection,
+    onSnapshot,
+} from "firebase/firestore";
+import { db } from "./firebase";
 
+const refUsers = collection(db, "users");
+
+
+export function userList(callback) {
+    onSnapshot(refUsers, snapshot => {
+        //console.log(snapshot.docs)
+        const users = snapshot.docs.map(doc => {
+            return {
+                id: doc.id,
+                email: doc.data().email,
+            }
+        });
+        console.log(users)
+        callback(users)
+
+    });
+}
 
 // export  async function getUserProfileById(id){
 //     const snapshot= await getDoc(doc(db, `/users/${id}`))
