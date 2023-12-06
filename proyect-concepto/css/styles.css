@@ -2102,10 +2102,19 @@ footer {
   gap: 10px;
 }
 .chat{
+    color:white;
     background-color: #3E58FF;
     border-radius: 10px;
     width: 40%;
     padding: 14px 10px;
+}
+.chat-admin{
+    color:white;
+    background-color: rgb(95, 104, 167);
+    border-radius: 10px;
+    width: 40%;
+    padding: 14px 10px;
+    margin-left: 55%;
 }
 .fecha-hora{
     text-align: end;
@@ -2119,6 +2128,7 @@ footer {
     border-radius: 32px;
     border: 1px solid #657EFF;
     padding: 3rem 1rem 1rem 1rem;
+    margin-bottom: 40px;
 }
 .content-form-chat{
     display: grid;

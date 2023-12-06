@@ -4,7 +4,9 @@ import Contacto from '../pages/Contacto.vue';
 import Login from '../pages/Login.vue';
 import Register from '../pages/Register.vue';
 import Profile from '../pages/Profile.vue';
-// import UserProfile from '../pages/UserProfile.vue';
+import UserProfile from '../pages/UserProfile.vue';
+import PrivateChatAdmin from '../pages/PrivateChatAdmin.vue';
+
 // import PrivateChat from '../pages/PrivateChat.vue';
 import Dashboard from '../pages/Dashboard.vue';
 import Mensajes from '../pages/Mensajes.vue';
@@ -32,6 +34,14 @@ const routes = [
     { path: '/admin/pricing', component: Pricing, },
     {
         path: '/admin/mensajes', component: Mensajes,
+        meta: { requiresAuth: true }
+    },
+    {
+        path: '/admin/mensajes/:id', component: UserProfile,
+        meta: { requiresAuth: true }
+    },
+    {
+        path: '/admin/mensajes/:id/chat', component: PrivateChatAdmin,
         meta: { requiresAuth: true }
     },
     { path: '/iniciar-sesion', component: Login, },

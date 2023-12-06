@@ -1,11 +1,31 @@
 // import { doc,getDoc, setDoc, updateDoc  } from "firebase/firestore";
 import {
+    doc,
     collection,
     onSnapshot,
+    setDoc,
+    getDoc,
 } from "firebase/firestore";
-import { db } from "./firebase";
+import {
+    db
+} from "./firebase";
 
 const refUsers = collection(db, "users");
+
+export async function getUserProfileById(id) {
+     const snapshotUser = await getDoc(doc(db,`/users/${id}`));
+     return{
+        id,
+        email:snapshotUser.data().email,
+     }
+
+};
+// Crea el perfil de un usuario
+export async function createUserProfile(id,data) {
+    // crea un documento especifico de un id de usuario
+    const userRef = doc(db,`/users/${id}`);
+    return  setDoc(userRef, data);
+};
 
 
 export function userList(callback) {
@@ -22,6 +42,7 @@ export function userList(callback) {
 
     });
 }
+
 
 // export  async function getUserProfileById(id){
 //     const snapshot= await getDoc(doc(db, `/users/${id}`))
