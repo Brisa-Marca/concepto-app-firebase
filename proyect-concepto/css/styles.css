@@ -2289,6 +2289,9 @@ tbody>tr>td{
     margin: auto;
     padding-bottom: 10px;
 }
+.content-profile{
+    margin: 15%;
+}
 .btn-users{
     background-color:var(--color-primary-400);
     padding: 10px 20px;
@@ -2296,6 +2299,20 @@ tbody>tr>td{
     color: white;
     border: 0;
     margin-top: 20px;
+}
+.content-btn-mensaje{
+    text-align: center;
+    padding-bottom: 30px;
+}
+.btn-users-mensaje{
+    background-color:var(--color-primary-400);
+    padding: 10px 20px;
+    border-radius: 10px;
+    width: 50%;
+    font-size: 23px;
+    color: white;
+    border: 0;
+
 }
 
 /* Loading */
