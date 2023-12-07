@@ -2101,10 +2101,6 @@ footer {
   display: flex;
   gap: 10px;
 }
-/* .content-chat-users{
-    display: flex;
-    justify-content: space-around;
-} */
 .chat{
     color:white;
     background-color: #3E58FF;

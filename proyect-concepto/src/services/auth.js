@@ -1,10 +1,8 @@
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 import { auth } from "./firebase";
-import { createUserProfile } from "./user.js";
-//import { createUserProfile } from "./user";
+import { createUserProfile, editUserProfile} from "./user.js";
 
-//Funcionalidad relativa a la autenticación en la app.
-//Primero vamos a guardar en una variable interna los datos de la autenticacion
+//Funcionalidad relativa a la autenticación en la app
 let userData = {
     id:null,
     email:null,
@@ -66,7 +64,6 @@ export function login ({email,password}){
     .then(() =>{
         // Como modificamos el contenido de userData, pedimos notificar a todos los observers.
         notifyAll();
-        //console.log("[auth.js login] Autenticacion exitosa:", userData)
         return userData;
     })
     .catch(error =>{
@@ -93,10 +90,10 @@ export async function editUser({displayName}){
      await updateProfile(auth.currentUser,{
         displayName
      })
-     //Despues se actualiza el perfil del usuario autentificado.En este caso en relaidad es el userProfile
-    //  await editUserProfile (userData.id,{
-    //     displayName
-    //  })
+    //  Despues se actualiza el perfil del usuario autentificado.En este caso en relaidad es el userProfile
+     await editUserProfile (userData.id,{
+        displayName
+     })
 
     //actualizamos los datos del usuario
     userData = {
