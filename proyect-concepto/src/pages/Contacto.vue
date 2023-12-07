@@ -67,7 +67,7 @@ export default{
     
            </section>
            <section class="content-chat">
-            <div id="chat" class="chat" v-for="message in messages">
+            <div id="chat" class="chat " v-for="message in messages">
                 <p>{{ message.message }}</p>
                 <div class="fecha-hora">{{ dateToString(message.created_at) || 'Enviando...' }}</div>
             </div>

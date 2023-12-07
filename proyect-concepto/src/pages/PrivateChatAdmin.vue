@@ -56,17 +56,14 @@ export default {
 </script>
 <template>
     <div class="content-login">
-        <h1 class="hero-section-title mb-24">Chat Privado con {{ userProfile.email }}</h1>
+        <h1 class="hero-section-title mb-24"> Chat Privado con {{ userProfile.email }} </h1>
     </div>
 
 
     <section class="content-chat">
-        <div class="content-chat-users">
             <div id="chat" class="chat-admin" v-for="message in messages">
-            <p>{{ message.message }}</p>
+            <p> {{ message.message }} </p>
             <div class="fecha-hora ">{{ dateToString(message.created_at) || 'Enviando...' }}</div>
-        </div>
-
         </div>
         
         <div class="form-chat " id="chat-form">
