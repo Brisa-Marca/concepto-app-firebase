@@ -20,7 +20,7 @@ export default {
             })
             .then( user =>{
              //Redireccion al perfil.
-             this.$router.push({path: '/iniciar-sesion'})
+             this.$router.push({path: '/'})
             })
         }
     }
