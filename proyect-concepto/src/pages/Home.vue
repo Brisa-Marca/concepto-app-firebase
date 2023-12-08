@@ -241,7 +241,7 @@ export default {
                </ul>
 
                <a href="#" class="main-cta m-0-auto">
-                <p>Explorar todos</p>
+                <p>Accedé al catálogo completo</p>
                 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewbox="0 0 48 48" fill="none">
                     <path fill="#fff"
                         d="M28.11 15.264a.9.9 0 1 0-1.273 1.272l6.557 6.558H12.9a.9.9 0 1 0 0 1.8h20.493l-6.556 6.556a.9.9 0 0 0 1.272 1.273l8.094-8.093a.9.9 0 0 0 0-1.273l-8.094-8.093Z" />
