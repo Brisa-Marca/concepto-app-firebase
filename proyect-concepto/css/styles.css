@@ -2097,6 +2097,12 @@ footer {
     color: var(--color-primary-500);
     font-weight: var(--switzer-semibold);
 }
+.text-funcion{
+    text-align: center;
+    width: 60%;
+    margin: auto;
+    padding-bottom: 60px;
+}
 .btn-login ul {
   display: flex;
   gap: 10px;

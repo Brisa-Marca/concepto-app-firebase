@@ -146,7 +146,7 @@ export default {
     <section class="container w-100 categorias mb-201" id="seccionCategorias">
         <p class="subtitle subtitle-center-lines text-center">Cómo funciona</p>
         <h2 class="h1 h1-bigger text-center mt-8 mb-56 ">Accedé a nuestro catálogo completo, no solo a un curso</h2>
-        <p class="paragraph mb-32">En lugar de ofrecerte un tutorial en particular, te ofrecemos el paquete completo: nuestro
+        <p class="paragraph mb-32 text-funcion">En lugar de ofrecerte un tutorial en particular, te ofrecemos el paquete completo: nuestro
             inmenso catálogo de cursos y tutoriales online, ¡para que puedas potenciar tu perfil profesional a tu propio
             ritmo!</p>
         <a href="#" class="main-cta m-0-auto">
@@ -160,12 +160,94 @@ export default {
 
     </section>
 
-    <section class="container w-100 download mb-32 mb-d-200">
-        <div class="download-content">
+    <section class="container trending  mb-200">
             <p class="subtitle subtitle-left-line mb-12">Últimas tendencias</p>
-               <h2 class="h1 h1-bigger text-left mt-8 mb-56 ">Descubrí algunos de nuestros tutoriales más populares</h2>
+               <h2 class="h1 h1-bigger mb-56">Descubrí algunos de nuestros tutoriales más populares</h2>
 
-        </div>
+               <ul class="container-cards mb-56" id="container-trending">
+                <li class="course-card">
+                    <a class="anchor-detail" href="#"></a>
+                    <div class="card-img">
+                        <img src="../../assets/png/course-design-systems-figma.png" alt="">
+                    </div>
+                    <div class="card-content">
+                        <p class="card-content-category mb-8">UX/UI</p>
+                        <h3 class="h3 mb-4">Design systems desde 0 en Figma</h3>
+                        <p class="card-content-paragraph mb-12">Aprendé desde 0 cómo armar un sistema de diseño en Figma, desde por qué necesitarías uno hasta las mejores prácticas utilizadas por equipos de diseño de todo el mundo en la actualidad.</p>
+                        <p class="card-content-price">$8.500</p>
+                    </div>
+                </li>
+                <li class="course-card">
+                    <a class="anchor-detail" href="#"></a>
+                    <div class="card-img">
+                        <img src="../../assets/png/course-css-bem.png" alt="">
+                    </div>
+                    <div class="card-content">
+                        <p class="card-content-category mb-8">Frontend</p>
+                        <h3 class="h3 mb-4">Cómo organizar tu CSS con la metodología BEM</h3>
+                        <p class="card-content-paragraph mb-12">Aprendé a optimizar tus proyectos frontend con un sistema robusto, escalable, mantenible en el tiempo y con una serie de reglas fáciles de seguir: BEM (Block Element Modifier).</p>
+                        <p class="card-content-price">$4.500</p>
+                    </div>
+                </li>
+                <li class="course-card">
+                    <a class="anchor-detail" href="#"></a>
+                    <div class="card-img">
+                        <img src="../../assets/png/course-responsive-grid.png" alt="">
+                    </div>
+                    <div class="card-content">
+                        <p class="card-content-category mb-8">UX/UI</p>
+                        <h3 class="h3 mb-4">Cómo diseñar interfaces web responsive haciendo uso de grillas</h3>
+                        <p class="card-content-paragraph mb-12">Aprendé todo sobre el uso de las grillas en el diseño de interfaces web y cómo volver tus diseños responsive.</p>
+                        <p class="card-content-price">$4.300</p>
+                    </div>
+                </li>
+                <li class="course-card">
+                    <a class="anchor-detail" href="#"></a>
+                    <div class="card-img">
+                        <img src="../../assets/png/course-gsap.png" alt="">
+                    </div>
+                    <div class="card-content">
+                        <p class="card-content-category mb-8">Frontend</p>
+                        <h3 class="h3 mb-4">Cómo agregar animaciones a tus webs con GSAP</h3>
+                        <p class="card-content-paragraph mb-12">Llevá tu desarrollo front-end al siguiente nivel añadiendo sofisticadas animaciones interactivas a tus proyectos.</p>
+                        <p class="card-content-price">$4.500</p>
+                    </div>
+                </li>
+                <li class="course-card">
+                    <a class="anchor-detail" href="#"></a>
+                    <div class="card-img">
+                        <img src="../../assets/png/course-accesibility.png" alt="">
+                    </div>
+                    <div class="card-content">
+                        <p class="card-content-category mb-8">UX/UI</p>
+                        <h3 class="h3 mb-4">Diseñar experiencias digitales siguiendo pautas de accesibilidad</h3>
+                        <p class="card-content-paragraph mb-12">Aprendé a aplicar los principios de la accesibilidad web (Web Content Accessibility Guidelines) en tus diseños y la importancia de considerar la diversidad de necesidades que tus creaciones cubren.</p>
+                        <p class="card-content-price">$4.700</p>
+                    </div>
+                </li>
+                <li class="course-card">
+                    <a class="anchor-detail" href="#"></a>
+                    <div class="card-img">
+                        <img src="../../assets/png/course-three.png" alt="">
+                    </div>
+                    <div class="card-content">
+                        <p class="card-content-category mb-8">Frontend</p>
+                        <h3 class="h3 mb-4">Agregá animaciones 3D a tus webs con Three.js</h3>
+                        <p class="card-content-paragraph mb-12">Aprendé a crear sitios web 3D envolventes y creativos con la librería Three.js.</p>
+                        <p class="card-content-price">$10.200</p>
+                    </div>
+                </li>
+                
+               </ul>
+
+               <a href="#" class="main-cta m-0-auto">
+                <p>Explorar todos</p>
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewbox="0 0 48 48" fill="none">
+                    <path fill="#fff"
+                        d="M28.11 15.264a.9.9 0 1 0-1.273 1.272l6.557 6.558H12.9a.9.9 0 1 0 0 1.8h20.493l-6.556 6.556a.9.9 0 0 0 1.272 1.273l8.094-8.093a.9.9 0 0 0 0-1.273l-8.094-8.093Z" />
+                </svg>
+               </a>
+
 </section>
 
     <section class="container w-100 download mb-32 mb-d-200">

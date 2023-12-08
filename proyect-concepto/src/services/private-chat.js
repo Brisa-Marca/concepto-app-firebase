@@ -1,16 +1,11 @@
 
 import { addDoc, collection, DocumentReference, getDocs, onSnapshot, orderBy, query, serverTimestamp, where } from "firebase/firestore";
 import { db } from "./firebase";
-//import { useRoute } from "vue-router";
 
 // Acá vamos a guardar los documentos de los chats privados.
 const chatDocsCache = {};
 
-//const user2 ='Q9DQIiTc2scDo10DKvmsUrsZY6a2';
-//console.log(idAdmin); Intentar cambiar el idUserCon user2
 export async function subscribeToPrivateChat({user1, user2}, callback) {
-    //console.log(user1)
-    //console.log(idUserAdmin),Me lo toma afuera pero no adentro
     const chatDoc = await getPrivateChatDocument({user1, user2});
     const q = query(
         collection(db, `private-chats/${chatDoc.id}/messages`), 
