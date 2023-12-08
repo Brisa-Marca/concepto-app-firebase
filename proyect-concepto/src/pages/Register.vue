@@ -7,6 +7,7 @@ export default {
     components:{BaseButton},
     data(){
         return{
+            processingRegister:false,
             form:{
                 email:'',
                 password:'',
@@ -15,10 +16,12 @@ export default {
     },
     methods:{
         handleSubmit(){
+            this.processingRegister=true;
             register({
                 ...this.form,
             })
             .then( user =>{
+                this.processingRegister=false;
              //Redireccion al perfil.
              this.$router.push({path: '/'})
             })
@@ -45,7 +48,7 @@ export default {
                     <input type="password"  id="pass" placeholder="**********" v-model="form.password" required>
                 </div>
                 
-                <BaseButton >Crear cuenta</BaseButton>
+                <BaseButton :loading="processingRegister" >Crear cuenta</BaseButton>
             </form>
             <div class="registrate-content">
                <p>¿Ya tienes una cuenta?</p>
