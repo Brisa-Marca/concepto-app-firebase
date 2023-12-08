@@ -149,7 +149,7 @@ export default {
         <p class="paragraph mb-32 text-funcion">En lugar de ofrecerte un tutorial en particular, te ofrecemos el paquete completo: nuestro
             inmenso catálogo de cursos y tutoriales online, ¡para que puedas potenciar tu perfil profesional a tu propio
             ritmo!</p>
-        <a href="#" class="main-cta m-0-auto">
+        <a href="#/pricing" class="main-cta m-0-auto">
             <p>Explorar planes</p>
 
             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewbox="0 0 48 48" fill="none">
@@ -174,7 +174,6 @@ export default {
                         <p class="card-content-category mb-8">UX/UI</p>
                         <h3 class="h3 mb-4">Design systems desde 0 en Figma</h3>
                         <p class="card-content-paragraph mb-12">Aprendé desde 0 cómo armar un sistema de diseño en Figma, desde por qué necesitarías uno hasta las mejores prácticas utilizadas por equipos de diseño de todo el mundo en la actualidad.</p>
-                        <p class="card-content-price">$8.500</p>
                     </div>
                 </li>
                 <li class="course-card">
@@ -186,7 +185,6 @@ export default {
                         <p class="card-content-category mb-8">Frontend</p>
                         <h3 class="h3 mb-4">Cómo organizar tu CSS con la metodología BEM</h3>
                         <p class="card-content-paragraph mb-12">Aprendé a optimizar tus proyectos frontend con un sistema robusto, escalable, mantenible en el tiempo y con una serie de reglas fáciles de seguir: BEM (Block Element Modifier).</p>
-                        <p class="card-content-price">$4.500</p>
                     </div>
                 </li>
                 <li class="course-card">
@@ -198,7 +196,6 @@ export default {
                         <p class="card-content-category mb-8">UX/UI</p>
                         <h3 class="h3 mb-4">Cómo diseñar interfaces web responsive haciendo uso de grillas</h3>
                         <p class="card-content-paragraph mb-12">Aprendé todo sobre el uso de las grillas en el diseño de interfaces web y cómo volver tus diseños responsive.</p>
-                        <p class="card-content-price">$4.300</p>
                     </div>
                 </li>
                 <li class="course-card">
@@ -210,7 +207,6 @@ export default {
                         <p class="card-content-category mb-8">Frontend</p>
                         <h3 class="h3 mb-4">Cómo agregar animaciones a tus webs con GSAP</h3>
                         <p class="card-content-paragraph mb-12">Llevá tu desarrollo front-end al siguiente nivel añadiendo sofisticadas animaciones interactivas a tus proyectos.</p>
-                        <p class="card-content-price">$4.500</p>
                     </div>
                 </li>
                 <li class="course-card">
@@ -222,7 +218,6 @@ export default {
                         <p class="card-content-category mb-8">UX/UI</p>
                         <h3 class="h3 mb-4">Diseñar experiencias digitales siguiendo pautas de accesibilidad</h3>
                         <p class="card-content-paragraph mb-12">Aprendé a aplicar los principios de la accesibilidad web (Web Content Accessibility Guidelines) en tus diseños y la importancia de considerar la diversidad de necesidades que tus creaciones cubren.</p>
-                        <p class="card-content-price">$4.700</p>
                     </div>
                 </li>
                 <li class="course-card">
@@ -234,7 +229,6 @@ export default {
                         <p class="card-content-category mb-8">Frontend</p>
                         <h3 class="h3 mb-4">Agregá animaciones 3D a tus webs con Three.js</h3>
                         <p class="card-content-paragraph mb-12">Aprendé a crear sitios web 3D envolventes y creativos con la librería Three.js.</p>
-                        <p class="card-content-price">$10.200</p>
                     </div>
                 </li>
                 
@@ -256,9 +250,7 @@ export default {
             <h2 class="h1 h1-bigger mb-16">Descargá nuestra app</h2>
 
             <p class="paragraph mb-32">Accedé a la enorme variedad de cursos y tutoriales de la plataforma desde
-                cualquier dispositivo, ya
-                sea
-                Android o IOS.</p>
+                cualquier dispositivo, ya sea Android o IOS.</p>
 
             <button class="main-cta">
                 <p>Descargar</p>

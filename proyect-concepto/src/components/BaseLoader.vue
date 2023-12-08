@@ -10,5 +10,6 @@ export default {
         <div>Cargando...</div>
     </div> -->
     <!-- <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div> -->
-    <div class="loader"></div>
+    <div class="loader">
+    </div>
 </template>

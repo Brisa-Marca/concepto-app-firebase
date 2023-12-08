@@ -167,7 +167,7 @@ export default {
                             <input type="text" class="input-caracteristicas" id="caracteristicas" v-model="newPlans.caracteristicas[1]">
                             <input type="text" class="input-caracteristicas" id="caracteristicas" v-model="newPlans.caracteristicas[2]">
                         </div>
-                        <BaseButton>Cargar</BaseButton>
+                        <BaseButton></BaseButton>
                     </form>
 
                 </div>
@@ -198,8 +198,7 @@ export default {
                     <input type="text" class="input-caracteristicas" id="caracteristicas" :disabled="processingEdit"
                         v-model="editData.caracteristicas[2]">
                 </div>
-                <!-- <BaseButton>Actualizar datos</BaseButton> -->
-                <button class="main-cta login" @loading="processingEdit">Actualizar datos</button>
+                <BaseButton :loading="processingEdit">Actualizar datos</BaseButton>
             </form>
             <div class="content-btn-cancel-edit">
                 <button class=" btn-cancel-edit btn-eliminar " @click="handleHideEdit">Cancelar edición</button>

@@ -6,6 +6,7 @@ import BaseButton from "./BaseButton.vue";
     components:{BaseButton},
     data(){
         return{
+            processingLogin:false,
             form:{
                 email: '',
                 password : '',
@@ -15,10 +16,14 @@ import BaseButton from "./BaseButton.vue";
     methods : {
         handleLogin(){
             console.log("Ejecutando el login con estos datos:", this.form);
+            this.processingLogin = true;
             login({
+        
                 ...this.form,
+                
             })
             .then( user =>{
+                this.processingLogin = false;
              //Redireccion al perfil del usuario.
              this.$router.push({path: '/perfil'});
             })
@@ -39,7 +44,7 @@ import BaseButton from "./BaseButton.vue";
                     <label for="pass">Contraseña</label>
                     <input type="password"  id="pass" placeholder="**********" v-model="form.password" required>
                 </div>
-                <BaseButton>Iniciar sesión</BaseButton>
+                <BaseButton :loading="processingLogin">Iniciar sesión</BaseButton>
             </form>
             
         </div>

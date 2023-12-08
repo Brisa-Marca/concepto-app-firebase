@@ -3,56 +3,53 @@ import { subscribeToAuth, editUser,logout} from '../services/auth';
 
 export default{
     name: 'Profile',
-    data(){
-      return{
-        user:{
-            id:null,
-            email:null,
-            displayName:null,
+    data() {
+        return {
+            user: {
+                id: null,
+                email: null,
+                displayName: null,
+            },
+            authUnsubcribe: () => { },
+            editing: false,
+            editData: {
+                displayName: "",
+            },
+            processingEdit: false,
+        };
     },
-     authUnsubcribe:() => {},
-     editing: false,
-     editData:{
-      displayName:"",
-     },
-     processingEdit:false,
-    }
-    },
-    methods:{
-      handleShowEdit(){
-        this.editing = true;
-        this.editData = {
-          displayName: this.user.displayName,
+    methods: {
+        handleShowEdit() {
+            this.editing = true;
+            this.editData = {
+                displayName: this.user.displayName,
+            };
+        },
+        handleHideEdit() {
+            this.editing = false;
+        },
+        async handleEdit() {
+            this.processingEdit = true,
+                await editUser({
+                    ...this.editData,
+                });
+            this.processingEdit = false;
+        },
+        handleLogout() {
+            logout()
+                .then(user => {
+                //Redireccion al iniciar-sesion.
+                this.$router.push({ path: '/iniciar-sesion' });
+            });
         }
-
-      },
-      handleHideEdit(){
-        this.editing = false;
-
-      },
-      async handleEdit(){
-         this.processingEdit = true,
-         await editUser({
-          ...this.editData,
-         });
-         this.processingEdit = false;
-      },
-      handleLogout(){
-       logout()
-       .then(user =>{
-             //Redireccion al iniciar-sesion.
-             this.$router.push({path: '/iniciar-sesion'})
-            })
-      }
     },
-    mounted(){
+    mounted() {
         this.authUnsubcribe = subscribeToAuth(newUser => {
-          this.user = newUser
-        })
-    }, unmounted(){
-      this.authUnsubcribe()
-    }
-
+            this.user = newUser;
+        });
+    }, unmounted() {
+        this.authUnsubcribe();
+    },
 }
 </script>
 <template>
