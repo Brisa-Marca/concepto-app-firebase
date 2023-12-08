@@ -6,6 +6,7 @@ import  BaseButton from '../components/BaseButton.vue';
 // import BaseLoader from '../components/BaseLoader.vue';
 export default {
     name: 'Pricing',
+    components: { BaseButton},
     data() {
         return {
             actual: [],
@@ -70,8 +71,6 @@ export default {
                 precio: plan.precio,
                 caracteristicas: plan.caracteristicas,
             };
-            // Guardamos en los datos para editar el id, y limpiamos los otro datos con
-            // los iniciales del plan.
             this.editingPlans = true;
         },
         handleHideEdit() {
@@ -99,12 +98,11 @@ export default {
     unmounted() {
         this.authsubscribe();
     },
-    components: { BaseButton},
 }
 </script>
 
 <template>
-    <template v-if="user.id == 'Q9DQIiTc2scDo10DKvmsUrsZY6a2'">
+    <template v-if="user.id == 'Q9DQIiTc2scDo10DKvmsUrsZY6a2'" >
         <!--Contenido de pricing :las tablas de parte de admin a partir de aca tendria que empezar el template del formularo para editar-->
         <template v-if="!editingPlans">
             <section class="pricing-content">
@@ -147,7 +145,7 @@ export default {
                     </table>
                 </div>
 
-                <!--Seccion de form para agregar un nuevo plan-->
+                <!--Sección de form para agregar un nuevo plan-->
                 <div class="checkout-form form-login">
                     <h1>Crear un nuevo plan</h1>
                     <form action="#" id="content-form-plans" @submit.prevent="sendPlans">

@@ -90,7 +90,7 @@ export async function editUser({displayName}){
      await updateProfile(auth.currentUser,{
         displayName
      })
-    //  Despues se actualiza el perfil del usuario autentificado.En este caso en relaidad es el userProfile
+    //  Despues se actualiza el perfil del usuario autentificado.En este caso en realidad es el userProfile
      await editUserProfile (userData.id,{
         displayName
      })

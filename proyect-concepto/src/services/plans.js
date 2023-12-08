@@ -36,8 +36,7 @@ export function planesActualizados(callback) {
                     doc.data().caracteristicas[1],
                     doc.data().caracteristicas[2],
                 ],
-                created_at:doc.data().
-                created_at.toDate(),
+                created_at:doc.data().created_at?.toDate(),
 
             }
         });
@@ -55,10 +54,6 @@ export  async function editPlans(id, {nombre, descripción, precio, caracteristi
         precio,
         caracteristicas
     })
-
-    // localStorage
-    // notifyAll();
-    // return true;
 }
 
 

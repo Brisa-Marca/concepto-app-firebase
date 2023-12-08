@@ -5,11 +5,6 @@ export default {
     data() {
         return {
             users: [],
-            // usersWhoMessagedAdmin: [],
-            // userProfile: {
-            //     id: null,
-            //     email: null,
-            // }
         }
     },
     mounted() {
@@ -24,7 +19,7 @@ export default {
     <div class="content-login">
         <h1 class="hero-section-title mb-24">Administrar mensajes de clientes</h1>
     </div>
-    <!-- Realizar un v-for en donde se pueda ver los mensajes de la colección -->
+    <!-- Lista de los usuarios autenticados -->
     <div class="content-users-admin">
         <div class="card-users" v-for="user in users" :key="user.id">
             <svg width="80" height="80" viewBox="0 0 113 113" fill="none" xmlns="http://www.w3.org/2000/svg" class="img">
